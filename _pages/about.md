@@ -7,7 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-I'm a fourth-year undergraduate student at Tsinghua University (https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering.
+I'm a fourth-year undergraduate student at [Tsinghua University](https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering.
+My research interest includes transportation system modeling, autonomous vehicles, and control barrier functions.
+
+I'm advised by [Prof. Jinhua Zhao](https://dusp.mit.edu/faculty/jinhua-zhao) at [MIT JTL Transit Lab](https://mobility.mit.edu/) and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) 
+at [UC Berkeley Mobile Sensing Lab](https://bayen.berkeley.edu/home)
 
 A data-driven personal website
 ======
