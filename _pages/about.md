@@ -11,7 +11,7 @@ I'm a fourth-year undergraduate student at [Tsinghua University](https://www.tsi
 My research interest includes transportation system modeling, autonomous vehicles, and control barrier functions.
 
 I'm very fortunate to be advised by 
-[Prof. Jinhua Zhao](https://dusp.mit.edu/faculty/jinhua-zhao) of [JTL Transit Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), 
+[Prof. Jinhua Zhao](https://mobility.mit.edu/people/jinhua-zhao) of [JTL Transit Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), 
 and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) of [Mobile Sensing Lab](https://bayen.berkeley.edu/home) from [UC Berkeley EECS](https://eecs.berkeley.edu/).
 
 A data-driven personal website
