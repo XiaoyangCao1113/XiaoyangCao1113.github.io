@@ -1,13 +1,13 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-I'm a fourth-year undergraduate student at Tsinghua University, majoring in Mathematics and Physics + Civil Engineering.
+I'm a fourth-year undergraduate student at Tsinghua University (https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering.
 
 A data-driven personal website
 ======
