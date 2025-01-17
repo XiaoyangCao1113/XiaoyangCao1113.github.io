@@ -8,7 +8,7 @@ redirect_from:
 
 ---
 
-I'm a fourth-year undergraduate student at [Tsinghua University](https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering. I'm very fortunate to be advised by [Prof. Jinhua Zhao](https://mobility.mit.edu/people/jinhua-zhao) of [JTL Transit Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) of [Mobile Sensing Lab](https://bayen.berkeley.edu/home) from [UC Berkeley EECS](https://eecs.berkeley.edu/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV.
+I'm a fourth-year undergraduate student at [Tsinghua University](https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering. I'm very fortunate to be advised by [Prof. Jinhua Zhao](https://mobility.mit.edu/people/jinhua-zhao) of [JTL Transit Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) of [Mobile Sensing Lab](https://bayen.berkeley.edu/home) from [UC Berkeley EECS](https://eecs.berkeley.edu/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV, updated in 2025/1/18.
 
 # Research Interests
 
