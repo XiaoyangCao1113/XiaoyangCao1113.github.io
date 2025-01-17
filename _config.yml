@@ -21,7 +21,7 @@ repository               : "XiaoyangCao1113/XiaoyangCao1113.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "./images/profile.jpg"
+  avatar           : "profile.png"
   name             : "Xiaoyang Cao"
   pronouns         : # example: "she/her"  
   bio              : "Undergraduate Student at Tsinghua University"
