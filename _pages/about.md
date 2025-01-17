@@ -24,3 +24,8 @@ News
 
 - **Oct, 2024**: Our new paper "Virtual Nodes Improve Long-term Traffic Prediction " was accepted for presentation at TRB Annual Meeting 2025.
 
+# Publication
+
+- **Xiaoyang Cao**, Zhe Fu, Alexandre M. Bayen, Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints, *American Control Conference, 2025*. [arXiv](https://arxiv.org/abs/2410.04260) [slide](../files/slides/slide_Virtual_Nodes.pdf)
+
+- **Xiaoyang Cao**, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao, Virtual Nodes Improve Long-term Traffic Prediction, *Transportation Research Board, 2025*. [slide](../files/slides/slide_PCBF.pdf)
