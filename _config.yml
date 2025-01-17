@@ -10,9 +10,9 @@
 locale                   : "en-US"
 title                    : "Xiaoyang Cao"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Xiaoyang Cao"
 description              : &description "a fourth-year undergraduate student from Tsinghua University"
-url                      : https://xiaoyangcao1113.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+url                      : https://xiaoyangcao1113.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "XiaoyangCao1113/XiaoyangCao1113.github.io"
 
