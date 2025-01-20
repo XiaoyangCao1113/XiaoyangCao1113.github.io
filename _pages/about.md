@@ -28,4 +28,4 @@ News
 
 - **Xiaoyang Cao**, Zhe Fu, Alexandre M. Bayen, Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints, *American Control Conference, 2025*. [arXiv](https://arxiv.org/abs/2410.04260) [slide](../files/slides/slide_Virtual_Nodes.pdf)
 
-- **Xiaoyang Cao**, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao, Virtual Nodes Improve Long-term Traffic Prediction, *Transportation Research Board, 2025*. [slide](../files/slides/slide_PCBF.pdf)
+- **Xiaoyang Cao**, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao, Virtual Nodes Improve Long-term Traffic Prediction, *Transportation Research Board, 2025*. [arXiv](https://arxiv.org/abs/2501.10048) [slide](../files/slides/slide_PCBF.pdf)
