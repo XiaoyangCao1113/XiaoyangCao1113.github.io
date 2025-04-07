@@ -8,17 +8,17 @@ redirect_from:
 
 ---
 
-I'm a fourth-year undergraduate student at [Tsinghua University](https://www.tsinghua.edu.cn/en/), majoring in Mathematics and Physics + Civil Engineering. I'm very fortunate to be advised by [Prof. Jinhua Zhao](https://mobility.mit.edu/people/jinhua-zhao) of [Urban Mobility Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) of [Mobile Sensing Lab](https://bayen.berkeley.edu/home) from [UC Berkeley EECS](https://eecs.berkeley.edu/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV, updated in 2025/2/1.
+I'm an incoming graduate student at **MIT [Institute for Data, Systems, and Society (IDSS)]**((https://idss.mit.edu/)) and currently a fourth-year undergraduate student at **[Tsinghua University]**(https://www.tsinghua.edu.cn/en/). I'm very fortunate to be advised by [Prof. Jinhua Zhao](https://mobility.mit.edu/people/jinhua-zhao) of [Urban Mobility Lab](https://mobility.mit.edu/) from [MIT DUSP](https://dusp.mit.edu/), and [Prof. Alexandre Bayen](https://bayen.berkeley.edu/alex-bayen) of [Mobile Sensing Lab](https://bayen.berkeley.edu/home) from [UC Berkeley EECS](https://eecs.berkeley.edu/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV, updated in 2025/2/1.
 
 # Research Interests
 
-- Travel demand modelling
-- Traffic prediction
-- Autonomous vehicles
-- Control barrier functions
+- LLM Alignment
+- Dynamic Control
+- Traffic Prediction
 
 News
 ======
+- **Apr, 2025**: I am excited to join **MIT [IDSS]**(https://idss.mit.edu/) as a master student in Fall 2025.
 
 - **Jan, 2025**: Our new paper "Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints" was accepted for presentation at American Control Conference (ACC) 2025.
 
