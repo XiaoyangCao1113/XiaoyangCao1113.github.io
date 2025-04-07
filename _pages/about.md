@@ -8,7 +8,7 @@ redirect_from:
 
 ---
 
-I'm an incoming graduate student at **MIT** [**Institute for Data, Systems, and Society (IDSS)**]((https://idss.mit.edu/)) and currently a fourth-year undergraduate student at [**Tsinghua University**](https://www.tsinghua.edu.cn/en/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV, updated in 2025/2/1.
+I'm an incoming graduate student at **MIT** [**Institute for Data, Systems, and Society (IDSS)**](https://idss.mit.edu/) and currently a fourth-year undergraduate student at [**Tsinghua University**](https://www.tsinghua.edu.cn/en/). Click [here](../files/CV_Xiaoyang_Cao.pdf) to view my up-to-date CV, updated in 2025/2/1.
 
 # Research Interests
 
