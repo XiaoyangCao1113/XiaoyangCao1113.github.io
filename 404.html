@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Xiaoyang Cao</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{--paper:#FAF8F4;--ink:#1E1A16;--muted:#6F675E;--accent:#8C2B32}
+@media (prefers-color-scheme:dark){:root{--paper:#14161B;--ink:#E9E4DA;--muted:#A29B8F;--accent:#E59A8C}}
+body{margin:0 auto;max-width:41.25rem;padding:6rem 1.5rem;background:var(--paper);color:var(--ink);font-family:Newsreader,Georgia,'Times New Roman',serif;font-size:1.0625rem;line-height:1.65}
+.code{font-family:'IBM Plex Mono',Consolas,monospace;font-size:.75rem;letter-spacing:.14em;color:var(--muted)}
+h1{font-size:2rem;font-weight:500;margin:.5rem 0 1rem}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <p class="code">404</p>
+  <h1>Page not found</h1>
+  <p>This page may have moved when the site was rebuilt.</p>
+  <p><a href="/">Back to the homepage</a></p>
+</main>
+<script>
+(function(){
+  var map={
+    '/publications':'/#publications',
+    '/cv':'/files/CV_Xiaoyang_Cao.pdf',
+    '/year-archive':'/#news',
+    '/about':'/','/talks':'/','/teaching':'/','/portfolio':'/',
+    '/markdown':'/','/sitemap':'/','/non-menu-page':'/','/talkmap':'/','/terms':'/'
+  };
+  var p=(location.pathname.replace(/\.html$/,'').replace(/\/+$/,'')||'/').toLowerCase();
+  if(map[p])location.replace(map[p]);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    text{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:78px;fill:#1E1A16}
+    @media (prefers-color-scheme:dark){text{fill:#E9E4DA}}
+  </style>
+  <text x="50" y="55" text-anchor="middle" dominant-baseline="central">曹</text>
+</svg>
