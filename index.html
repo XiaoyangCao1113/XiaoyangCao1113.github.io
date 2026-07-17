@@ -49,7 +49,7 @@ html{color-scheme:light dark;scroll-behavior:smooth}
 body{
   margin:0 auto;max-width:41.25rem;padding:5rem 1.5rem 4rem;
   background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:1.0625rem;line-height:1.65;
+  font-family:var(--serif);font-size:1.125rem;line-height:1.65;
   font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--sel-bg);color:var(--sel-ink)}
@@ -67,11 +67,11 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 .masthead{display:flex;gap:1.75rem;align-items:flex-start;margin-bottom:2.5rem}
 .portrait{width:144px;height:144px;border-radius:12px;box-shadow:0 0 0 1px var(--faint);flex:none}
 .name{margin:0 0 .5rem;font-size:clamp(2.25rem,6vw,2.75rem);line-height:1.1;font-weight:500;letter-spacing:-.015em}
-.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.125rem;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:.4rem;white-space:nowrap}
-.role{margin:0 0 .4rem;font-size:1.0625rem;line-height:1.55}
+.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.1875rem;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:.4rem;white-space:nowrap}
+.role{margin:0 0 .4rem;font-size:1.125rem;line-height:1.55}
 .amp{font-style:italic}
-.meta{margin:0 0 .8rem;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
-.links{font-family:var(--mono);font-size:.75rem;line-height:2;color:var(--muted)}
+.meta{margin:0 0 .8rem;font-family:var(--mono);font-size:.8125rem;color:var(--muted)}
+.links{font-family:var(--mono);font-size:.8125rem;line-height:2;color:var(--muted)}
 .links a{text-decoration:none}
 .links a:hover{text-decoration:underline}
 
@@ -79,7 +79,7 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 .sec{margin-top:3.5rem}
 .label{
   display:flex;align-items:center;gap:1rem;margin:0 0 1.25rem;
-  font-family:var(--mono);font-size:.6875rem;font-weight:500;
+  font-family:var(--mono);font-size:.75rem;font-weight:500;
   letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
 }
 .label::after{content:"";flex:1;border-top:1px solid var(--faint)}
@@ -89,30 +89,30 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 
 /* ---- the shared rail ---- */
 .rail-list{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem;row-gap:.625rem;margin:0;padding:0}
-.rail-list dt{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-align:right;padding-top:.28em;white-space:nowrap}
-.rail-list dd{margin:0;font-size:1rem;line-height:1.55}
+.rail-list dt{font-family:var(--mono);font-size:.8125rem;color:var(--muted);text-align:right;padding-top:.28em;white-space:nowrap}
+.rail-list dd{margin:0;font-size:1.0625rem;line-height:1.55}
 
 .pubs{list-style:none;margin:0;padding:0}
 .pubs li{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem}
 .pubs li+li{margin-top:1.5rem}
-.rail-num{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-align:right;padding-top:.5em}
-.pub-title{margin:0;font-size:1.125rem;font-weight:500;line-height:1.4}
-.pub-authors{margin:.2rem 0 0;font-size:1rem;line-height:1.5}
+.rail-num{font-family:var(--mono);font-size:.8125rem;color:var(--muted);text-align:right;padding-top:.5em}
+.pub-title{margin:0;font-size:1.1875rem;font-weight:500;line-height:1.4}
+.pub-authors{margin:.2rem 0 0;font-size:1.0625rem;line-height:1.5}
 .pub-authors strong{font-weight:600}
-.pub-meta{margin:.4rem 0 0;font-family:var(--mono);font-size:.75rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:baseline}
-.venue{font-weight:500;font-size:.71875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pub-meta{margin:.4rem 0 0;font-family:var(--mono);font-size:.8125rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:baseline}
+.venue{font-weight:500;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .pub-meta a{text-decoration:none}
 .pub-meta a:hover{text-decoration:underline}
 
 .rail-ul{list-style:none;margin:0;padding:0}
 .rail-ul li{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem}
 .rail-ul li+li{margin-top:1.25rem}
-.rail-ul .rail{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-align:right;padding-top:.3em;white-space:nowrap}
-.rail-ul strong{display:block;font-weight:500;font-size:1.0625rem;line-height:1.5}
-.rail-ul .fine{font-size:.9375rem;color:var(--muted)}
+.rail-ul .rail{font-family:var(--mono);font-size:.8125rem;color:var(--muted);text-align:right;padding-top:.3em;white-space:nowrap}
+.rail-ul strong{display:block;font-weight:500;font-size:1.125rem;line-height:1.5}
+.rail-ul .fine{font-size:1rem;color:var(--muted)}
 
 /* ---- colophon ---- */
-.colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--faint);font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--faint);font-family:var(--mono);font-size:.8125rem;color:var(--muted)}
 .colophon p{margin:0 0 .4rem}
 .colophon p:last-child{margin-bottom:0}
 
@@ -132,7 +132,7 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
   .portrait{width:176px;height:176px;margin-bottom:1.5rem}
   .name{font-size:2.125rem}
   .name-zh{display:block;margin:.45rem 0 0}
-  .role{font-size:1rem}
+  .role{font-size:1.0625rem}
   .links .dot{display:none}
   .links a{display:block;line-height:1.95;width:fit-content}
 }
