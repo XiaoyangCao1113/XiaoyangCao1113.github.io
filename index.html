@@ -171,8 +171,9 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 <div class="content">
 
 <section class="bio">
-  <p>I’m a master’s student at MIT, advised by <a href="https://miba.dev/">Michiel Bakker</a>. Before MIT, I received my B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
+  <p>Hi! I’m a master’s student at MIT, advised by <a href="https://miba.dev/">Michiel Bakker</a>. Before MIT, I received my B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
   <p>My research draws on ideas from mathematical logic, cognitive science, and statistical physics to study how intelligence arises. I’m currently exploring this through <a href="#self-referential-ai">self-referential AI</a> and <a href="#multi-agent-emergence">multi-agent systems</a>.</p>
+  <p>Feel free to reach out at <span id="mail-b">xycao [at] mit [dot] edu</span>.</p>
 </section>
 
 <section class="sec" id="research">
@@ -262,8 +263,10 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
   var h='mai'+'lto:'+a;
   var m=document.getElementById('mail');
   if(m)m.href=h;
-  var f=document.getElementById('mail-f');
-  if(f){var l=document.createElement('a');l.href=h;l.textContent=a;f.replaceChildren(l);}
+  ['mail-f','mail-b'].forEach(function(id){
+    var f=document.getElementById(id);
+    if(f){var l=document.createElement('a');l.href=h;l.textContent=a;f.replaceChildren(l);}
+  });
 })();
 </script>
 </body>
