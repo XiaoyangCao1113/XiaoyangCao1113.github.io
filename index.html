@@ -26,243 +26,332 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2')}
 
 :root{
-  --paper:#FAF8F4; --ink:#1E1A16; --muted:#6F675E;
-  --faint:rgba(30,26,22,.15);
-  --accent:#8C2B32; --accent-deep:#661D24;
-  --sel-bg:#8C2B32; --sel-ink:#FAF8F4;
+  --paper:#FAF8F4;--surface:#FFFFFF;--surface-soft:#F4F0EA;
+  --ink:#1E1A16;--muted:#706960;--line:#E3DDD4;
+  --accent:#8C2B32;--accent-deep:#651D23;--accent-soft:#F6E9E8;
+  --shadow:0 16px 48px rgba(45,35,27,.07);
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
   --sans:system-ui,'Segoe UI',-apple-system,'Helvetica Neue','Noto Sans',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html{color-scheme:only light;scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{color-scheme:only light;scroll-behavior:smooth;scroll-padding-top:5.5rem}
 body{
-  margin:0 auto;max-width:44rem;padding:5rem 1.5rem 4rem;
-  background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:1.375rem;line-height:1.6;
-  font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-::selection{background:var(--sel-bg);color:var(--sel-ink)}
-p{margin:0 0 1rem;text-wrap:pretty}
-a{
-  color:var(--accent);
-  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
-  text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent);
-  transition:color .12s ease-out;
+body::before{
+  content:"";position:fixed;inset:0 0 auto;height:28rem;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0));
 }
+::selection{background:var(--accent);color:#fff}
+img{max-width:100%}
+p{margin:0;text-wrap:pretty}
+a{color:var(--accent);text-decoration-color:rgba(140,43,50,.35);text-underline-offset:3px}
 a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.container{width:min(100% - 4rem,70rem);margin-inline:auto}
 
-/* ---- masthead ---- */
-.masthead{display:flex;gap:1.75rem;align-items:flex-start;margin-bottom:2.5rem}
-.portrait{width:144px;height:144px;border-radius:12px;box-shadow:0 0 0 1px var(--faint);flex:none}
-.name{margin:0 0 .5rem;font-family:var(--serif);font-size:clamp(2.5rem,6vw,3rem);line-height:1.1;font-weight:500;letter-spacing:-.015em}
-.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.25rem;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:.4rem;white-space:nowrap}
-.role{margin:0 0 .4rem;font-size:1.25rem;line-height:1.55}
-.amp{font-family:var(--serif);font-style:italic}
-.meta{margin:0 0 .8rem;font-family:var(--mono);font-size:.9375rem;color:var(--muted)}
-.links{font-family:var(--mono);font-size:.9375rem;line-height:2;color:var(--muted)}
-.links a{text-decoration:none}
-.links a:hover{text-decoration:underline}
-
-/* ---- sections ---- */
-.sec{margin-top:3.5rem}
-.label{
-  display:flex;align-items:center;gap:1rem;margin:0 0 1.25rem;
-  font-family:var(--mono);font-size:.8125rem;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+/* navigation */
+.site-header{
+  position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(30,26,22,.08);
+  background:rgba(250,248,244,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
 }
-.label::after{content:"";flex:1;border-top:1px solid var(--faint)}
-.bio p:last-child{margin-bottom:0}
-.sec p:last-child{margin-bottom:0}
-#self-referential-ai,#multi-agent-emergence{scroll-margin-top:2rem}
+.nav-inner{height:4.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.brand{font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand-short{display:none}
+.site-nav{display:flex;align-items:center;gap:1.6rem;font-size:.82rem;font-weight:650;letter-spacing:.025em}
+.site-nav a{color:var(--muted);text-decoration:none}
+.site-nav a:hover{color:var(--accent)}
 
-/* ---- the shared rail ---- */
-.rail-list{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem;row-gap:.625rem;margin:0;padding:0}
-.rail-list dt{font-family:var(--mono);font-size:.9375rem;color:var(--muted);text-align:right;padding-top:.28em;white-space:nowrap}
-.rail-list dd{margin:0;font-size:1.25rem;line-height:1.55}
-
-.pubs{list-style:none;margin:0;padding:0}
-.pubs li{display:grid;grid-template-columns:12rem minmax(0,1fr);column-gap:1.25rem;align-items:start}
-.pubs li+li{margin-top:2rem}
-.pub-figure{
-  display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;
-  margin:.15rem 0 0;padding:.4rem;overflow:hidden;
-  background:#fff;border:1px solid var(--faint);border-radius:8px;
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 17.5rem;align-items:center;gap:clamp(3rem,8vw,7rem);padding-block:6.5rem 5.5rem}
+.eyebrow,.section-kicker,.card-kicker{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);
 }
-.pub-figure img{display:block;width:100%;height:100%;object-fit:contain}
-.pub-copy{min-width:0}
-.pub-title{margin:0;font-family:var(--serif);font-size:1.4375rem;font-weight:500;line-height:1.4}
-.pub-authors{margin:.2rem 0 0;font-size:1.25rem;line-height:1.5}
-.pub-authors strong{font-weight:600}
-.pub-meta{margin:.4rem 0 0;font-family:var(--mono);font-size:.9375rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:baseline}
-.venue{font-weight:500;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.pub-meta a{text-decoration:none}
-.pub-meta a:hover{text-decoration:underline}
-
-.rail-ul{list-style:none;margin:0;padding:0}
-.rail-ul li{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem}
-.rail-ul li+li{margin-top:1.25rem}
-.rail-ul .rail{font-family:var(--mono);font-size:.9375rem;color:var(--muted);text-align:right;padding-top:.3em;white-space:nowrap}
-.rail-ul strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.375rem;line-height:1.5}
-.rail-ul .fine{font-size:1.1875rem;color:var(--muted)}
-
-/* ---- colophon ---- */
-.colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--faint);font-family:var(--mono);font-size:.9375rem;color:var(--muted)}
-.colophon p{margin:0 0 .4rem}
-.colophon p:last-child{margin-bottom:0}
-
-@media (max-width:700px){
-  .pubs li{grid-template-columns:1fr;row-gap:1rem}
-  .pub-figure{margin:0}
+.hero-name{margin:.9rem 0 0;font-family:var(--serif);font-size:1.65rem;line-height:1.15;font-weight:500}
+.hero-name-zh{margin-left:.55rem;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1rem;font-weight:400;color:var(--muted);letter-spacing:.1em;white-space:nowrap}
+.hero-thesis{max-width:49rem;margin:1.15rem 0 1.35rem;font-family:var(--serif);font-size:clamp(3.7rem,6.7vw,5.7rem);font-weight:500;letter-spacing:-.045em;line-height:.94}
+.hero-role{margin-bottom:1rem;color:var(--muted);font-size:.96rem;font-weight:550}
+.hero-bio{max-width:46rem;font-size:1.08rem;line-height:1.72;color:#403A34}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;margin-top:1.75rem}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;min-height:2.65rem;padding:.65rem 1rem;
+  border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);
+  font-size:.83rem;font-weight:650;text-decoration:none;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
 }
+.button:hover{color:var(--accent);border-color:rgba(140,43,50,.38);box-shadow:0 7px 20px rgba(45,35,27,.07);transform:translateY(-1px)}
+.button-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.button-primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.portrait-card{margin:0;padding:.78rem;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:1.6rem;box-shadow:var(--shadow);transform:rotate(1.2deg)}
+.portrait-card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:1.05rem}
 
+/* sections */
+.section{padding-block:4.6rem;scroll-margin-top:4.5rem}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2rem}
+.section-title{margin:.45rem 0 0;font-family:var(--serif);font-size:clamp(2.35rem,4vw,3.25rem);font-weight:500;letter-spacing:-.025em;line-height:1}
+.section-rule{flex:1;max-width:16rem;height:1px;margin-bottom:.35rem;background:var(--line)}
+.research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.research-card,.info-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:1.15rem;box-shadow:var(--shadow);
+}
+.research-card{padding:2rem;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.research-card:hover{transform:translateY(-2px);border-color:rgba(140,43,50,.25);box-shadow:0 20px 54px rgba(45,35,27,.09)}
+.research-card h3{margin:.65rem 0 .8rem;font-family:var(--serif);font-size:1.75rem;font-weight:500;line-height:1.15}
+.research-card p{color:#4B443D;line-height:1.72}
+
+/* publications */
+.publication-list{display:grid;gap:1.25rem;margin:0;padding:0;list-style:none}
+.publication-card{
+  display:grid;grid-template-columns:minmax(17rem,34%) minmax(0,1fr);overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);border-radius:1.2rem;box-shadow:var(--shadow);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.publication-card:hover{transform:translateY(-2px);border-color:rgba(140,43,50,.24);box-shadow:0 20px 58px rgba(45,35,27,.1)}
+.publication-visual{
+  display:flex;align-items:center;justify-content:center;min-height:14.5rem;padding:1.4rem;
+  background:var(--surface-soft);border-right:1px solid var(--line);text-decoration:none;
+}
+.publication-visual img{display:block;width:100%;height:100%;max-height:12rem;object-fit:contain;transition:transform .2s ease}
+.publication-card:hover .publication-visual img{transform:scale(1.015)}
+.publication-copy{display:flex;min-width:0;flex-direction:column;padding:1.65rem 1.85rem}
+.publication-title{margin:0;font-family:var(--serif);font-size:clamp(1.45rem,2.25vw,1.82rem);font-weight:500;line-height:1.16;letter-spacing:-.012em}
+.publication-title a{color:var(--ink);text-decoration:none}
+.publication-title a:hover{color:var(--accent)}
+.publication-authors{margin-top:.72rem;color:#504941;font-size:.94rem;line-height:1.55}
+.publication-authors strong{font-weight:700;color:var(--ink)}
+.publication-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;margin-top:auto;padding-top:1.15rem}
+.venue-badge{padding:.34rem .58rem;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:.69rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase}
+.resource-link{padding:.34rem .58rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-family:var(--mono);font-size:.69rem;font-weight:500;text-decoration:none}
+.resource-link:hover{border-color:rgba(140,43,50,.35);color:var(--accent);background:#FFFCFA}
+
+/* news and education */
+.lower-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:1.25rem;padding-block:4.6rem 6rem}
+.info-card{padding:1.8rem;scroll-margin-top:5.5rem}
+.info-title{margin:.45rem 0 1.35rem;font-family:var(--serif);font-size:1.9rem;font-weight:500;line-height:1}
+.news-list,.education-list{margin:0;padding:0;list-style:none}
+.news-list li{display:grid;grid-template-columns:5.3rem 1fr;gap:1rem;padding:.82rem 0;border-top:1px solid var(--line)}
+.news-list time,.education-year{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.news-list p{font-size:.92rem;line-height:1.52}
+.education-list li{padding:.9rem 0;border-top:1px solid var(--line)}
+.education-row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.education-school{font-family:var(--serif);font-size:1.17rem;font-weight:500;line-height:1.22}
+.education-detail{display:block;margin-top:.32rem;color:var(--muted);font-size:.83rem;line-height:1.52}
+
+/* footer */
+.colophon{border-top:1px solid var(--line);padding-block:1.7rem 2.5rem;color:var(--muted);font-family:var(--mono);font-size:.7rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer-links{display:flex;gap:1rem}
+.footer-links a{color:var(--muted);text-decoration:none}
+.footer-links a:hover{color:var(--accent)}
+
+@media (max-width:900px){
+  .container{width:min(100% - 3rem,70rem)}
+  .hero{grid-template-columns:minmax(0,1fr) 14rem;gap:3rem;padding-block:5rem 4.5rem}
+  .hero-thesis{font-size:clamp(3.5rem,8vw,4.8rem)}
+  .lower-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:4.5rem}
+  .nav-inner{height:4rem}
+  .site-nav{gap:1rem;font-size:.77rem}
+  .hero{grid-template-columns:1fr;padding-block:3.3rem 3.8rem}
+  .portrait-card{order:-1;width:8.5rem;padding:.42rem;border-radius:1rem;transform:none}
+  .portrait-card img{border-radius:.72rem}
+  .hero-thesis{font-size:clamp(3.25rem,13vw,4.5rem);max-width:39rem}
+  .section{padding-block:3.5rem}
+  .research-grid{grid-template-columns:1fr}
+  .publication-card{grid-template-columns:1fr}
+  .publication-visual{min-height:0;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line)}
+  .publication-visual img{max-height:100%}
+  .lower-grid{padding-block:3.5rem 4.5rem}
+}
 @media (max-width:560px){
-  body{padding:2.5rem 1.25rem 3rem}
-  .masthead{display:block;margin-bottom:2rem}
-  .portrait{width:92px;height:92px;border-radius:10px;margin-bottom:1.25rem}
-  .name{font-size:2.25rem}
-  .sec{margin-top:2.75rem}
-  .rail-list,.rail-ul li{grid-template-columns:5.25rem 1fr;column-gap:1rem}
+  .container{width:min(100% - 2.5rem,70rem)}
+  .brand-full{display:none}.brand-short{display:inline}
+  .site-nav{gap:.78rem;font-size:.72rem}
+  .hero{gap:1.8rem}
+  .hero-name{font-size:1.45rem}
+  .hero-thesis{margin-top:.9rem;font-size:clamp(2.95rem,14vw,3.65rem)}
+  .hero-bio{font-size:1rem}
+  .section-heading{margin-bottom:1.5rem}
+  .section-rule{display:none}
+  .research-card{padding:1.45rem}
+  .publication-copy{padding:1.35rem}
+  .publication-visual{padding:1rem}
+  .lower-grid{gap:1rem}
+  .info-card{padding:1.4rem}
+  .news-list li{grid-template-columns:4.4rem 1fr;gap:.65rem}
+  .education-row{display:block}.education-year{display:block;margin-top:.25rem}
+  .footer-inner{align-items:flex-start;flex-direction:column}
 }
-
-@media screen and (min-width:1100px){
-  body{max-width:80rem}
-  main{display:grid;grid-template-columns:minmax(17rem,21rem) minmax(0,46rem);column-gap:clamp(4.5rem,7vw,9rem);justify-content:center}
-  .masthead{display:block;position:sticky;top:5rem;align-self:start;margin-bottom:0}
-  .portrait{width:clamp(176px,13vw,208px);height:auto;margin-bottom:1.5rem}
-  .name{font-size:2.375rem}
-  .name-zh{display:block;margin:.45rem 0 0}
-  .role{font-size:1.1875rem}
-  .links .dot{display:none}
-  .links a{display:block;line-height:1.95;width:fit-content}
+@media (hover:none){
+  .button:hover,.research-card:hover,.publication-card:hover{transform:none}
+  .publication-card:hover .publication-visual img{transform:none}
 }
-
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 @media print{
-  body{background:#fff;color:#000;max-width:none;padding:0}
-  a{color:#000}
-  .pub-meta a[href^="https://arxiv.org"]::after{content:" (" attr(href) ")"}
+  body{background:#fff;color:#000}.site-header{display:none}.container{width:100%}
+  .hero{padding-block:1rem}.portrait-card,.research-card,.publication-card,.info-card{box-shadow:none}
+  a{color:#000}.publication-title a[href]::after,.resource-link[href]::after{content:" (" attr(href) ")"}
 }
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Xiaoyang Cao","alternateName":"曹骁扬","url":"https://xiaoyangcao1113.github.io/","image":"https://xiaoyangcao1113.github.io/images/og.jpg","jobTitle":"M.S. student","affiliation":{"@type":"CollegeOrUniversity","name":"Massachusetts Institute of Technology"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Tsinghua University"},"sameAs":["https://scholar.google.com/citations?user=XVWuYHAAAAAJ","https://github.com/XiaoyangCao1113","https://www.linkedin.com/in/xiaoyangcao","https://orcid.org/0009-0001-5970-071X"]}
 </script>
 </head>
-<body>
-<main>
-
-<header class="masthead">
-  <img class="portrait" src="/images/portrait-320.webp" width="144" height="144" alt="Portrait of Xiaoyang Cao">
-  <div>
-    <h1 class="name">Xiaoyang Cao <span class="name-zh" lang="zh-Hans">曹骁扬</span></h1>
-    <p class="role">M.S. student at MIT, in <a href="https://cse.mit.edu/">Computational Science <span class="amp">&amp;</span> Engineering</a> and <a href="https://tpp.mit.edu/">Technology <span class="amp">&amp;</span> Policy</a></p>
-    <p class="meta">Cambridge, MA</p>
-    <nav class="links" aria-label="Profiles">
-      <a href="/files/CV_Xiaoyang_Cao.pdf">CV</a> <span class="dot">·</span>
-      <a href="https://scholar.google.com/citations?user=XVWuYHAAAAAJ">Scholar</a> <span class="dot">·</span>
-      <a href="https://github.com/XiaoyangCao1113">GitHub</a> <span class="dot">·</span>
-      <a href="https://www.linkedin.com/in/xiaoyangcao">LinkedIn</a> <span class="dot">·</span>
-      <a href="https://orcid.org/0009-0001-5970-071X">ORCID</a> <span class="dot">·</span>
-      <a id="mail" href="#colophon">Email</a>
+<body id="top">
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Back to top"><span class="brand-full">Xiaoyang Cao</span><span class="brand-short">XC</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#research">Research</a>
+      <a href="#publications">Pubs</a>
+      <a href="#news">News</a>
+      <a href="/files/CV_Xiaoyang_Cao.pdf">CV</a>
     </nav>
   </div>
 </header>
 
-<div class="content">
-
-<section class="bio">
-  <p>Hi! I’m a master’s student at MIT, advised by <a href="https://miba.dev/">Michiel Bakker</a>. Before MIT, I received my B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
-  <p>My research draws on ideas from mathematical logic, cognitive science, and statistical physics to study how intelligence arises. I’m currently exploring this through <a href="#self-referential-ai">self-referential AI</a> and <a href="#multi-agent-emergence">multi-agent systems</a>.</p>
-  <p>Feel free to reach out at <span id="mail-b">xycao [at] mit [dot] edu</span>.</p>
+<main>
+<section class="hero container" aria-labelledby="intro-title">
+  <div class="hero-copy">
+    <p class="eyebrow">MIT · Cambridge, Massachusetts</p>
+    <h1 class="hero-name" id="intro-title">Xiaoyang Cao <span class="hero-name-zh" lang="zh-Hans">曹骁扬</span></h1>
+    <p class="hero-thesis">Studying how intelligence arises.</p>
+    <p class="hero-role">M.S. student in <a href="https://cse.mit.edu/">Computational Science &amp; Engineering</a> and <a href="https://tpp.mit.edu/">Technology &amp; Policy</a> at MIT</p>
+    <p class="hero-bio">Hi! I’m a master’s student at MIT, advised by <a href="https://miba.dev/">Michiel Bakker</a>. I study how intelligence arises through ideas from mathematical logic, cognitive science, and statistical physics, with current work on <a href="#self-referential-ai">self-referential AI</a> and <a href="#multi-agent-emergence">multi-agent systems</a>. Before MIT, I received a B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
+    <div class="hero-actions" aria-label="Contact and profiles">
+      <a class="button button-primary" id="mail" href="#colophon">Email me</a>
+      <a class="button" href="/files/CV_Xiaoyang_Cao.pdf">CV</a>
+      <a class="button" href="https://scholar.google.com/citations?user=XVWuYHAAAAAJ">Google Scholar</a>
+      <a class="button" href="https://github.com/XiaoyangCao1113">GitHub</a>
+      <a class="button" href="https://www.linkedin.com/in/xiaoyangcao">LinkedIn</a>
+    </div>
+  </div>
+  <figure class="portrait-card">
+    <img src="/images/portrait-320.webp" width="320" height="320" alt="Portrait of Xiaoyang Cao">
+  </figure>
 </section>
 
-<section class="sec" id="research">
-  <h2 class="label">Research Interests</h2>
-  <p id="self-referential-ai"><strong>Self-Referential AI.</strong> Hofstadter’s <a href="https://en.wikipedia.org/wiki/I_Am_a_Strange_Loop">strange loops</a> argue that a mind is what happens when a system models itself. Schmidhuber’s <a href="https://arxiv.org/abs/cs/0309048">Gödel Machine</a> gave this intuition a computational form. I see the same principle at work in <a href="https://arxiv.org/abs/2401.10020">self-reward</a>, <a href="https://www.nature.com/articles/nature24270">self-play</a>, self-distillation, and recursive self-improvement. They look like separate techniques. I think they share a root: a model that reasons over its own outputs to reshape itself.</p>
-  <p id="multi-agent-emergence"><strong>Multi-Agent Emergence.</strong> My starting point is Anderson’s <a href="https://www.science.org/doi/10.1126/science.177.4047.393">“more is different”</a>: at scale, new phenomena emerge that you can’t predict from the parts. Wolfram’s <a href="https://www.wolframscience.com/nks/"><em>A New Kind of Science</em></a> makes the same case computationally. Simple rules, iterated, produce genuinely complex behavior. I want to study this in multi-agent AI, where agent swarms, social intelligence, and game theory give rise to collective phenomena that no single agent could produce.</p>
+<section class="section container" id="research">
+  <div class="section-heading">
+    <div><p class="section-kicker">01 · Research</p><h2 class="section-title">Questions I care about</h2></div>
+    <span class="section-rule" aria-hidden="true"></span>
+  </div>
+  <div class="research-grid">
+    <article class="research-card" id="self-referential-ai">
+      <p class="card-kicker">01 / Self-reference</p>
+      <h3>Self-Referential AI</h3>
+      <p>I study AI systems that learn by reasoning over their own outputs. Inspired by Hofstadter’s <a href="https://en.wikipedia.org/wiki/I_Am_a_Strange_Loop">strange loops</a> and Schmidhuber’s <a href="https://arxiv.org/abs/cs/0309048">Gödel Machine</a>, I view <a href="https://arxiv.org/abs/2401.10020">self-reward</a>, <a href="https://www.nature.com/articles/nature24270">self-play</a>, self-distillation, and recursive self-improvement as expressions of a shared principle: models using self-reference to reshape their behavior.</p>
+    </article>
+    <article class="research-card" id="multi-agent-emergence">
+      <p class="card-kicker">02 / Emergence</p>
+      <h3>Multi-Agent Emergence</h3>
+      <p>Inspired by Anderson’s <a href="https://www.science.org/doi/10.1126/science.177.4047.393">“more is different”</a> and Wolfram’s <a href="https://www.wolframscience.com/nks/"><em>A New Kind of Science</em></a>, I study emergence in multi-agent AI: how simple local rules, game-theoretic interactions, and large agent populations give rise to collective intelligence that no individual agent possesses.</p>
+    </article>
+  </div>
 </section>
 
-<section class="sec" id="publications">
-  <h2 class="label">Publications</h2>
-  <ol class="pubs">
-    <li>
-      <figure class="pub-figure">
-        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" loading="lazy" decoding="async" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization">
-      </figure>
-      <div class="pub-copy">
-        <p class="pub-title">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</p>
-        <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu</p>
-        <p class="pub-meta"><span class="venue">ICLR 2026</span> <a href="https://arxiv.org/abs/2509.24159">arXiv</a> <a href="https://repo-alignment.github.io/">Website</a></p>
+<section class="section container" id="publications">
+  <div class="section-heading">
+    <div><p class="section-kicker">02 · Publications</p><h2 class="section-title">Selected work</h2></div>
+    <span class="section-rule" aria-hidden="true"></span>
+  </div>
+  <ol class="publication-list">
+    <li class="publication-card">
+      <a class="publication-visual" href="https://repo-alignment.github.io/" aria-label="Open the RE-PO project website">
+        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" loading="lazy" decoding="async" alt="RE-PO expectation-maximization loop for robust preference optimization">
+      </a>
+      <div class="publication-copy">
+        <h3 class="publication-title"><a href="https://repo-alignment.github.io/">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</a></h3>
+        <p class="publication-authors"><strong>Xiaoyang Cao</strong>, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu</p>
+        <div class="publication-meta">
+          <span class="venue-badge">ICLR 2026</span>
+          <a class="resource-link" href="https://arxiv.org/abs/2509.24159">arXiv</a>
+          <a class="resource-link" href="https://repo-alignment.github.io/">Website</a>
+        </div>
       </div>
     </li>
-    <li>
-      <figure class="pub-figure">
-        <img src="/images/publications/pcbf-pareto-front.png" width="664" height="534" loading="lazy" decoding="async" alt="Pareto front showing feasible and optimal control barrier functions">
-      </figure>
-      <div class="pub-copy">
-        <p class="pub-title">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</p>
-        <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zhe Fu, Alexandre M. Bayen</p>
-        <p class="pub-meta"><span class="venue">ACC 2025</span> <a href="https://arxiv.org/abs/2410.04260">arXiv</a> <a href="/files/slides/slide_PCBF.pdf">Slides</a></p>
+    <li class="publication-card">
+      <a class="publication-visual" href="https://arxiv.org/abs/2410.04260" aria-label="Open the PCBF paper on arXiv">
+        <img src="/images/publications/pcbf-objective-space.png" width="706" height="535" loading="lazy" decoding="async" alt="PCBF objective-space decomposition around the Pareto front with upper and lower bounds">
+      </a>
+      <div class="publication-copy">
+        <h3 class="publication-title"><a href="https://arxiv.org/abs/2410.04260">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</a></h3>
+        <p class="publication-authors"><strong>Xiaoyang Cao</strong>, Zhe Fu, Alexandre M. Bayen</p>
+        <div class="publication-meta">
+          <span class="venue-badge">ACC 2025</span>
+          <a class="resource-link" href="https://arxiv.org/abs/2410.04260">arXiv</a>
+          <a class="resource-link" href="/files/slides/slide_PCBF.pdf">Slides</a>
+        </div>
       </div>
     </li>
-    <li>
-      <figure class="pub-figure">
+    <li class="publication-card">
+      <a class="publication-visual" href="https://arxiv.org/abs/2501.10048" aria-label="Open the Virtual Nodes paper on arXiv">
         <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" loading="lazy" decoding="async" alt="Virtual node accelerating message passing across a traffic graph">
-      </figure>
-      <div class="pub-copy">
-        <p class="pub-title">Virtual Nodes Improve Long-term Traffic Prediction</p>
-        <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao</p>
-        <p class="pub-meta"><span class="venue">TRB Annual Meeting 2025</span> <a href="https://arxiv.org/abs/2501.10048">arXiv</a> <a href="/files/slides/slide_Virtual_Nodes.pdf">Slides</a></p>
+      </a>
+      <div class="publication-copy">
+        <h3 class="publication-title"><a href="https://arxiv.org/abs/2501.10048">Virtual Nodes Improve Long-term Traffic Prediction</a></h3>
+        <p class="publication-authors"><strong>Xiaoyang Cao</strong>, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao</p>
+        <div class="publication-meta">
+          <span class="venue-badge">TRB Annual Meeting 2025</span>
+          <a class="resource-link" href="https://arxiv.org/abs/2501.10048">arXiv</a>
+          <a class="resource-link" href="/files/slides/slide_Virtual_Nodes.pdf">Slides</a>
+        </div>
       </div>
     </li>
   </ol>
 </section>
 
-<section class="sec" id="news">
-  <h2 class="label">News</h2>
-  <dl class="rail-list">
-    <dt><time datetime="2026-01">Jan 2026</time></dt>
-    <dd>RE-PO, our framework for robust LLM alignment, was accepted at ICLR 2026.</dd>
-    <dt><time datetime="2025-09">Sep 2025</time></dt>
-    <dd>Started my M.S. at MIT.</dd>
-    <dt><time datetime="2025-04">Apr 2025</time></dt>
-    <dd>Admitted to MIT for Fall 2025.</dd>
-    <dt><time datetime="2025-01">Jan 2025</time></dt>
-    <dd>Our paper on Pareto Control Barrier Functions was accepted at ACC 2025.</dd>
-    <dt><time datetime="2024-10">Oct 2024</time></dt>
-    <dd>Our paper on virtual nodes for traffic prediction was accepted at TRB 2025.</dd>
-  </dl>
-</section>
+<div class="container lower-grid">
+  <section class="info-card" id="news" aria-labelledby="news-title">
+    <p class="card-kicker">03 / News</p>
+    <h2 class="info-title" id="news-title">Recent updates</h2>
+    <ol class="news-list">
+      <li><time datetime="2026-01">Jan 2026</time><p>RE-PO, our framework for robust LLM alignment, was accepted at ICLR 2026.</p></li>
+      <li><time datetime="2025-09">Sep 2025</time><p>Started my M.S. at MIT.</p></li>
+      <li><time datetime="2025-04">Apr 2025</time><p>Admitted to MIT for Fall 2025.</p></li>
+      <li><time datetime="2025-01">Jan 2025</time><p>Our paper on Pareto Control Barrier Functions was accepted at ACC 2025.</p></li>
+      <li><time datetime="2024-10">Oct 2024</time><p>Our paper on virtual nodes for traffic prediction was accepted at TRB 2025.</p></li>
+    </ol>
+  </section>
 
-<section class="sec" id="education">
-  <h2 class="label">Education</h2>
-  <ul class="rail-ul">
-    <li>
-      <span class="rail">2025–2027</span>
-      <div><strong>Massachusetts Institute of Technology</strong>
-      <span class="fine">Dual M.S., Computational Science <span class="amp">&amp;</span> Engineering and Technology <span class="amp">&amp;</span> Policy · expected May 2027</span></div>
-    </li>
-    <li>
-      <span class="rail">2024</span>
-      <div><strong>University of California, Berkeley</strong>
-      <span class="fine">Exchange student, Jan–Aug 2024 · GPA 3.93 / 4.00</span></div>
-    </li>
-    <li>
-      <span class="rail">2021–2025</span>
-      <div><strong>Tsinghua University</strong>
-      <span class="fine">B.S. in Mathematics and Physics · GPA 3.95 / 4.00, ranked 3 / 60</span></div>
-    </li>
-  </ul>
-</section>
-
-<footer class="colophon" id="colophon">
-  <p>© 2026 Xiaoyang Cao · <span id="mail-f">xycao [at] mit [dot] edu</span></p>
-  <p>Typeset in Newsreader &amp; IBM Plex Mono · hand-written HTML · no tracking</p>
-</footer>
-
+  <section class="info-card" id="education" aria-labelledby="education-title">
+    <p class="card-kicker">04 / Education</p>
+    <h2 class="info-title" id="education-title">Background</h2>
+    <ul class="education-list">
+      <li>
+        <div class="education-row"><span class="education-school">Massachusetts Institute of Technology</span><span class="education-year">2025–2027</span></div>
+        <span class="education-detail">Dual M.S., Computational Science &amp; Engineering and Technology &amp; Policy · expected May 2027</span>
+      </li>
+      <li>
+        <div class="education-row"><span class="education-school">University of California, Berkeley</span><span class="education-year">2024</span></div>
+        <span class="education-detail">Exchange student, Jan–Aug 2024 · GPA 3.93 / 4.00</span>
+      </li>
+      <li>
+        <div class="education-row"><span class="education-school">Tsinghua University</span><span class="education-year">2021–2025</span></div>
+        <span class="education-detail">B.S. in Mathematics and Physics · GPA 3.95 / 4.00, ranked 3 / 60</span>
+      </li>
+    </ul>
+  </section>
 </div>
 </main>
+
+<footer class="colophon" id="colophon">
+  <div class="container footer-inner">
+    <p>© 2026 Xiaoyang Cao · <span id="mail-f">xycao [at] mit [dot] edu</span></p>
+    <nav class="footer-links" aria-label="Additional profiles">
+      <a href="https://orcid.org/0009-0001-5970-071X">ORCID</a>
+      <a href="https://www.linkedin.com/in/xiaoyangcao">LinkedIn</a>
+      <a href="#top">Back to top</a>
+    </nav>
+  </div>
+</footer>
 <script>
 (function(){
   var p=['xycao','mit','edu'];
