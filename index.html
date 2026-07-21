@@ -26,10 +26,10 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2')}
 
 :root{
-  --paper:#FAF8F4; --ink:#1E1A16; --muted:#6F675E;
-  --faint:rgba(30,26,22,.15);
-  --accent:#8C2B32; --accent-deep:#661D24;
-  --sel-bg:#8C2B32; --sel-ink:#FAF8F4;
+  --paper:#FAF8F4; --ink:#211D18; --muted:#746C63;
+  --line:rgba(33,29,24,.14); --line-soft:rgba(33,29,24,.09);
+  --accent:#8B3036; --accent-deep:#5F2026;
+  --sel-bg:#8B3036; --sel-ink:#FAF8F4;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
   --sans:system-ui,'Segoe UI',-apple-system,'Helvetica Neue','Noto Sans',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,Menlo,monospace;
@@ -38,105 +38,120 @@
 html{color-scheme:only light;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
-  margin:0 auto;max-width:44rem;padding:5rem 1.5rem 4rem;
+  margin:0 auto;max-width:46rem;padding:4.5rem 1.5rem 3.5rem;
   background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:1.375rem;line-height:1.6;
+  font-family:var(--serif);font-size:1.125rem;line-height:1.64;
   font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--sel-bg);color:var(--sel-ink)}
-p{margin:0 0 1rem;text-wrap:pretty}
+p{margin:0 0 .95rem;text-wrap:pretty}
+img{max-width:100%}
 a{
   color:var(--accent);
   text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
   text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent);
-  transition:color .12s ease-out;
+  transition:color .12s ease-out,text-decoration-color .12s ease-out;
 }
 a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
 /* ---- masthead ---- */
-.masthead{display:flex;gap:1.75rem;align-items:flex-start;margin-bottom:2.5rem}
-.portrait{width:144px;height:144px;border-radius:12px;box-shadow:0 0 0 1px var(--faint);flex:none}
-.name{margin:0 0 .5rem;font-family:var(--serif);font-size:clamp(2.5rem,6vw,3rem);line-height:1.1;font-weight:500;letter-spacing:-.015em}
-.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.25rem;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:.4rem;white-space:nowrap}
-.role{margin:0 0 .4rem;font-size:1.25rem;line-height:1.55}
+.masthead{display:flex;gap:1.6rem;align-items:flex-start;margin-bottom:2.75rem}
+.portrait{width:136px;height:136px;border:1px solid var(--line-soft);border-radius:8px;flex:none}
+.name{margin:0 0 .55rem;font-family:var(--serif);font-size:clamp(2.25rem,6vw,2.7rem);line-height:1.04;font-weight:500;letter-spacing:-.018em}
+.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.05rem;font-weight:400;color:var(--muted);letter-spacing:.08em;margin-left:.4rem;white-space:nowrap}
+.role{margin:0 0 .45rem;font-size:1.05rem;line-height:1.48}
 .amp{font-family:var(--serif);font-style:italic}
-.meta{margin:0 0 .8rem;font-family:var(--mono);font-size:.9375rem;color:var(--muted)}
-.links{font-family:var(--mono);font-size:.9375rem;line-height:2;color:var(--muted)}
+.meta{margin:0 0 .75rem;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.links{font-family:var(--mono);font-size:.75rem;line-height:1.9;color:var(--muted)}
 .links a{text-decoration:none}
 .links a:hover{text-decoration:underline}
 
 /* ---- sections ---- */
-.sec{margin-top:3.5rem}
+.bio{font-size:1.15rem;line-height:1.62}
+.sec{margin-top:3.75rem}
 .label{
-  display:flex;align-items:center;gap:1rem;margin:0 0 1.25rem;
-  font-family:var(--mono);font-size:.8125rem;font-weight:500;
+  display:flex;align-items:center;gap:1rem;margin:0 0 1.35rem;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
   letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
 }
-.label::after{content:"";flex:1;border-top:1px solid var(--faint)}
+.label::after{content:"";flex:1;border-top:1px solid var(--line)}
 .bio p:last-child{margin-bottom:0}
 .sec p:last-child{margin-bottom:0}
+#research p+p{margin-top:1.05rem}
 #self-referential-ai,#multi-agent-emergence{scroll-margin-top:2rem}
 
 /* ---- the shared rail ---- */
-.rail-list{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem;row-gap:.625rem;margin:0;padding:0}
-.rail-list dt{font-family:var(--mono);font-size:.9375rem;color:var(--muted);text-align:right;padding-top:.28em;white-space:nowrap}
-.rail-list dd{margin:0;font-size:1.25rem;line-height:1.55}
+.rail-list{display:grid;grid-template-columns:5rem 1fr;column-gap:1.2rem;row-gap:.65rem;margin:0;padding:0}
+.rail-list dt{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right;padding-top:.4em;white-space:nowrap}
+.rail-list dd{margin:0;font-size:1rem;line-height:1.48}
 
 .pubs{list-style:none;margin:0;padding:0}
-.pubs li{display:grid;grid-template-columns:12rem minmax(0,1fr);column-gap:1.25rem;align-items:start}
-.pubs li+li{margin-top:2rem}
+.pubs li{display:grid;grid-template-columns:11.25rem minmax(0,1fr);column-gap:1.5rem;align-items:start;padding-bottom:1.75rem;border-bottom:1px solid var(--line-soft)}
+.pubs li+li{margin-top:1.75rem}
+.pubs li:last-child{padding-bottom:0;border-bottom:0}
 .pub-figure{
   display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;
-  margin:.15rem 0 0;padding:.4rem;overflow:hidden;
-  background:#fff;border:1px solid var(--faint);border-radius:8px;
+  margin:.1rem 0 0;padding:.5rem;overflow:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:5px;text-decoration:none;
 }
+.pub-figure:hover{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
 .pub-figure img{display:block;width:100%;height:100%;object-fit:contain}
 .pub-copy{min-width:0}
-.pub-title{margin:0;font-family:var(--serif);font-size:1.4375rem;font-weight:500;line-height:1.4}
-.pub-authors{margin:.2rem 0 0;font-size:1.25rem;line-height:1.5}
+.pub-title{margin:0;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.25;letter-spacing:-.006em}
+.pub-authors{margin:.35rem 0 0;font-size:1rem;line-height:1.45;color:#4F4841}
 .pub-authors strong{font-weight:600}
-.pub-meta{margin:.4rem 0 0;font-family:var(--mono);font-size:.9375rem;display:flex;flex-wrap:wrap;gap:.9rem;align-items:baseline}
-.venue{font-weight:500;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pub-meta{margin:.55rem 0 0;font-family:var(--mono);font-size:.75rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
+.venue{font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .pub-meta a{text-decoration:none}
 .pub-meta a:hover{text-decoration:underline}
 
 .rail-ul{list-style:none;margin:0;padding:0}
-.rail-ul li{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem}
-.rail-ul li+li{margin-top:1.25rem}
-.rail-ul .rail{font-family:var(--mono);font-size:.9375rem;color:var(--muted);text-align:right;padding-top:.3em;white-space:nowrap}
-.rail-ul strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.375rem;line-height:1.5}
-.rail-ul .fine{font-size:1.1875rem;color:var(--muted)}
+.rail-ul li{display:grid;grid-template-columns:5rem 1fr;column-gap:1.2rem}
+.rail-ul li+li{margin-top:1.15rem}
+.rail-ul .rail{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right;padding-top:.45em;white-space:nowrap}
+.rail-ul strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.16rem;line-height:1.35}
+.rail-ul .fine{display:block;margin-top:.12rem;font-size:.98rem;line-height:1.45;color:var(--muted)}
 
 /* ---- colophon ---- */
-.colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--faint);font-family:var(--mono);font-size:.9375rem;color:var(--muted)}
+.colophon{margin-top:3.75rem;padding-top:1.35rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;line-height:1.55;color:var(--muted)}
 .colophon p{margin:0 0 .4rem}
 .colophon p:last-child{margin-bottom:0}
 
-@media (max-width:700px){
-  .pubs li{grid-template-columns:1fr;row-gap:1rem}
-  .pub-figure{margin:0}
-}
-
-@media (max-width:560px){
-  body{padding:2.5rem 1.25rem 3rem}
-  .masthead{display:block;margin-bottom:2rem}
-  .portrait{width:92px;height:92px;border-radius:10px;margin-bottom:1.25rem}
-  .name{font-size:2.25rem}
-  .sec{margin-top:2.75rem}
-  .rail-list,.rail-ul li{grid-template-columns:5.25rem 1fr;column-gap:1rem}
-}
-
-@media screen and (min-width:1100px){
-  body{max-width:80rem}
-  main{display:grid;grid-template-columns:minmax(17rem,21rem) minmax(0,46rem);column-gap:clamp(4.5rem,7vw,9rem);justify-content:center}
-  .masthead{display:block;position:sticky;top:5rem;align-self:start;margin-bottom:0}
-  .portrait{width:clamp(176px,13vw,208px);height:auto;margin-bottom:1.5rem}
-  .name{font-size:2.375rem}
-  .name-zh{display:block;margin:.45rem 0 0}
-  .role{font-size:1.1875rem}
+@media (max-width:640px){
+  body{padding:2.75rem 1.25rem 3rem}
+  .masthead{display:block;margin-bottom:2.5rem}
+  .portrait{width:90px;height:90px;margin-bottom:1.2rem}
+  .name{font-size:2.1rem}
+  .name-zh{font-size:.95rem}
+  .role{font-size:1rem}
+  .links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;line-height:1.45}
   .links .dot{display:none}
-  .links a{display:block;line-height:1.95;width:fit-content}
+  .bio{font-size:1.08rem}
+  .sec{margin-top:3.1rem}
+  .pubs li{grid-template-columns:1fr;row-gap:1rem}
+  .pub-figure{width:min(100%,18rem);margin:0}
+  .rail-list,.rail-ul li{grid-template-columns:4.35rem minmax(0,1fr);column-gap:.9rem}
+}
+
+@media (max-width:380px){
+  body{padding-inline:1.05rem}
+  .name{font-size:1.95rem}
+  .rail-list,.rail-ul li{grid-template-columns:1fr;row-gap:.15rem}
+  .rail-list dt,.rail-ul .rail{text-align:left;padding-top:0}
+  .rail-list dd+dt{margin-top:.35rem}
+}
+
+@media screen and (min-width:1060px){
+  body{max-width:73rem;padding-block:4.25rem 3.5rem}
+  main{display:grid;grid-template-columns:16rem minmax(0,43rem);column-gap:clamp(4rem,6vw,6.5rem);justify-content:center}
+  .masthead{display:block;position:sticky;top:4.25rem;align-self:start;margin-bottom:0}
+  .portrait{width:184px;height:184px;margin-bottom:1.35rem}
+  .name{font-size:2.3rem}
+  .name-zh{display:block;margin:.45rem 0 0}
+  .role{max-width:15rem;font-size:1rem}
+  .links .dot{display:none}
+  .links a{display:block;line-height:1.9;width:fit-content}
 }
 
 @media print{
@@ -160,7 +175,7 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
     <p class="meta">Cambridge, MA</p>
     <nav class="links" aria-label="Profiles">
       <a href="/files/CV_Xiaoyang_Cao.pdf">CV</a> <span class="dot">·</span>
-      <a href="https://scholar.google.com/citations?user=XVWuYHAAAAAJ">Scholar</a> <span class="dot">·</span>
+      <a href="https://scholar.google.com/citations?user=XVWuYHAAAAAJ">Google Scholar</a> <span class="dot">·</span>
       <a href="https://github.com/XiaoyangCao1113">GitHub</a> <span class="dot">·</span>
       <a href="https://www.linkedin.com/in/xiaoyangcao">LinkedIn</a> <span class="dot">·</span>
       <a href="https://orcid.org/0009-0001-5970-071X">ORCID</a> <span class="dot">·</span>
@@ -187,9 +202,9 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
   <h2 class="label">Publications</h2>
   <ol class="pubs">
     <li>
-      <figure class="pub-figure">
-        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" loading="lazy" decoding="async" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization">
-      </figure>
+      <a class="pub-figure" href="https://repo-alignment.github.io/" aria-label="Open the RE-PO project website">
+        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization">
+      </a>
       <div class="pub-copy">
         <p class="pub-title">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu</p>
@@ -197,9 +212,9 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
       </div>
     </li>
     <li>
-      <figure class="pub-figure">
-        <img src="/images/publications/pcbf-objective-space.png" width="706" height="535" loading="lazy" decoding="async" alt="PCBF objective-space decomposition around the Pareto front with upper and lower bounds">
-      </figure>
+      <a class="pub-figure" href="https://arxiv.org/abs/2410.04260" aria-label="Open the PCBF paper on arXiv">
+        <img src="/images/publications/pcbf-objective-space.png" width="706" height="535" alt="PCBF objective-space decomposition around the Pareto front with upper and lower bounds">
+      </a>
       <div class="pub-copy">
         <p class="pub-title">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zhe Fu, Alexandre M. Bayen</p>
@@ -207,9 +222,9 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
       </div>
     </li>
     <li>
-      <figure class="pub-figure">
-        <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" loading="lazy" decoding="async" alt="Virtual node accelerating message passing across a traffic graph">
-      </figure>
+      <a class="pub-figure" href="https://arxiv.org/abs/2501.10048" aria-label="Open the Virtual Nodes paper on arXiv">
+        <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" alt="Virtual node accelerating message passing across a traffic graph">
+      </a>
       <div class="pub-copy">
         <p class="pub-title">Virtual Nodes Improve Long-term Traffic Prediction</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao</p>
