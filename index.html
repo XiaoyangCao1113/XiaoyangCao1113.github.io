@@ -7,9 +7,8 @@
 <meta name="description" content="Xiaoyang Cao (曹骁扬) — M.S. student at MIT studying how intelligence arises, through self-referential AI and multi-agent emergence.">
 <meta name="author" content="Xiaoyang Cao">
 <link rel="canonical" href="https://xiaoyangcao1113.github.io/">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAF8F4">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161B">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF8F4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Xiaoyang Cao">
 <meta property="og:description" content="M.S. student at MIT studying how intelligence arises — self-referential AI and multi-agent emergence.">
@@ -35,17 +34,8 @@
   --sans:system-ui,'Segoe UI',-apple-system,'Helvetica Neue','Noto Sans',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,Menlo,monospace;
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --paper:#14161B; --ink:#E9E4DA; --muted:#A29B8F;
-    --faint:rgba(233,228,218,.14);
-    --accent:#E59A8C; --accent-deep:#F2B6AB;
-    --sel-bg:#E59A8C; --sel-ink:#14161B;
-  }
-}
-
 *{box-sizing:border-box}
-html{color-scheme:light dark;scroll-behavior:smooth}
+html{color-scheme:only light;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   margin:0 auto;max-width:44rem;padding:5rem 1.5rem 4rem;
@@ -94,9 +84,15 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 .rail-list dd{margin:0;font-size:1.25rem;line-height:1.55}
 
 .pubs{list-style:none;margin:0;padding:0}
-.pubs li{display:grid;grid-template-columns:5.5rem 1fr;column-gap:1.25rem}
-.pubs li+li{margin-top:1.5rem}
-.rail-num{font-family:var(--mono);font-size:.9375rem;color:var(--muted);text-align:right;padding-top:.5em}
+.pubs li{display:grid;grid-template-columns:12rem minmax(0,1fr);column-gap:1.25rem;align-items:start}
+.pubs li+li{margin-top:2rem}
+.pub-figure{
+  display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;
+  margin:.15rem 0 0;padding:.4rem;overflow:hidden;
+  background:#fff;border:1px solid var(--faint);border-radius:8px;
+}
+.pub-figure img{display:block;width:100%;height:100%;object-fit:contain}
+.pub-copy{min-width:0}
 .pub-title{margin:0;font-family:var(--serif);font-size:1.4375rem;font-weight:500;line-height:1.4}
 .pub-authors{margin:.2rem 0 0;font-size:1.25rem;line-height:1.5}
 .pub-authors strong{font-weight:600}
@@ -117,13 +113,18 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 .colophon p{margin:0 0 .4rem}
 .colophon p:last-child{margin-bottom:0}
 
+@media (max-width:700px){
+  .pubs li{grid-template-columns:1fr;row-gap:1rem}
+  .pub-figure{margin:0}
+}
+
 @media (max-width:560px){
   body{padding:2.5rem 1.25rem 3rem}
   .masthead{display:block;margin-bottom:2rem}
   .portrait{width:92px;height:92px;border-radius:10px;margin-bottom:1.25rem}
   .name{font-size:2.25rem}
   .sec{margin-top:2.75rem}
-  .rail-list,.pubs li,.rail-ul li{grid-template-columns:5.25rem 1fr;column-gap:1rem}
+  .rail-list,.rail-ul li{grid-template-columns:5.25rem 1fr;column-gap:1rem}
 }
 
 @media screen and (min-width:1100px){
@@ -184,26 +185,32 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 
 <section class="sec" id="publications">
   <h2 class="label">Publications</h2>
-  <ol reversed class="pubs">
+  <ol class="pubs">
     <li>
-      <span class="rail-num" aria-hidden="true">3</span>
-      <div>
+      <figure class="pub-figure">
+        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" loading="lazy" decoding="async" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization">
+      </figure>
+      <div class="pub-copy">
         <p class="pub-title">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu</p>
         <p class="pub-meta"><span class="venue">ICLR 2026</span> <a href="https://arxiv.org/abs/2509.24159">arXiv</a> <a href="https://repo-alignment.github.io/">Website</a></p>
       </div>
     </li>
     <li>
-      <span class="rail-num" aria-hidden="true">2</span>
-      <div>
+      <figure class="pub-figure">
+        <img src="/images/publications/pcbf-pareto-front.png" width="664" height="534" loading="lazy" decoding="async" alt="Pareto front showing feasible and optimal control barrier functions">
+      </figure>
+      <div class="pub-copy">
         <p class="pub-title">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zhe Fu, Alexandre M. Bayen</p>
         <p class="pub-meta"><span class="venue">ACC 2025</span> <a href="https://arxiv.org/abs/2410.04260">arXiv</a> <a href="/files/slides/slide_PCBF.pdf">Slides</a></p>
       </div>
     </li>
     <li>
-      <span class="rail-num" aria-hidden="true">1</span>
-      <div>
+      <figure class="pub-figure">
+        <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" loading="lazy" decoding="async" alt="Virtual node accelerating message passing across a traffic graph">
+      </figure>
+      <div class="pub-copy">
         <p class="pub-title">Virtual Nodes Improve Long-term Traffic Prediction</p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao</p>
         <p class="pub-meta"><span class="venue">TRB Annual Meeting 2025</span> <a href="https://arxiv.org/abs/2501.10048">arXiv</a> <a href="/files/slides/slide_Virtual_Nodes.pdf">Slides</a></p>
