@@ -1,0 +1,36 @@
+name: Refresh CV download URL
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/bust-cv-cache.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Add cache-busting version to CV link
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          old = 'href="/files/CV_Xiaoyang_Cao_2026.pdf"'
+          new = 'href="/files/CV_Xiaoyang_Cao_2026.pdf?v=20260821-2"'
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected exactly one unversioned CV link, found {s.count(old)}')
+          p.write_text(s.replace(old, new, 1))
+          PY
+          rm -f .github/workflows/bust-cv-cache.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Add cache-busting version to CV link'
+          git push
