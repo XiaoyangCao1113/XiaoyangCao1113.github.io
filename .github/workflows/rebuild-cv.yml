@@ -1,0 +1,50 @@
+name: Rebuild CV
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.cv-build/CV_Xiaoyang_Cao_2026.tex'
+      - '.github/workflows/rebuild-cv.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Compile CV
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: .cv-build/CV_Xiaoyang_Cao_2026.tex
+          work_in_root_file_dir: true
+          texlive_version: 2025
+
+      - name: Verify and publish PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf='.cv-build/CV_Xiaoyang_Cao_2026.pdf'
+          test -f "$pdf"
+          test "$(stat -c%s "$pdf")" -gt 100000
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('.cv-build/CV_Xiaoyang_Cao_2026.pdf')
+          data = p.read_bytes()
+          assert data.startswith(b'%PDF-'), 'Compiled output is not a PDF'
+          assert len(data) > 100000, 'Compiled PDF is unexpectedly small'
+          print(f'Verified {p}: {len(data)} bytes')
+          PY
+          cp "$pdf" files/CV_Xiaoyang_Cao_2026.pdf
+          cp "$pdf" files/CV_Xiaoyang_Cao.pdf
+          rm -rf .cv-build
+          rm -f .github/workflows/rebuild-cv.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Replace corrupted CV with clean LaTeX build'
+          git push
