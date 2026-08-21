@@ -1,0 +1,131 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,left=0.78in,right=0.78in,top=0.72in,bottom=0.62in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+\renewcommand{\arraystretch}{1.06}
+\pagestyle{empty}
+
+% Preserve the original CV display: uppercase heading and thin divider.
+\titleformat{\section}
+  {\fontsize{11.5}{13}\selectfont\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-0.28em}\rule{\textwidth}{0.45pt}]
+\titlespacing*{\section}{0pt}{0.70em}{0.48em}
+
+\newcommand{\cvrow}[4]{%
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{#1} & #2\\[-0.03em]
+\textit{#3} & #4
+\end{tabularx}\vspace{-0.05em}
+}
+
+\newcommand{\research}[3]{%
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{#1} & #2\\[-0.03em]
+\textit{#3} &
+\end{tabularx}\vspace{-0.08em}
+}
+
+\newcommand{\pub}[1]{\hangindent=1.35em\hangafter=1 #1\par\vspace{0.50em}}
+\newcommand{\linktag}[2]{\href{#1}{\normalfont\underline{[#2]}}}
+
+\begin{document}
+\fontsize{10.35}{12.25}\selectfont
+
+\begin{center}
+{\fontsize{21.5}{24}\selectfont\bfseries Xiaoyang Cao}\par
+\vspace{0.55em}
+{\fontsize{9.6}{11.3}\selectfont
+Cambridge, MA \; $\cdot$ \; (+1) 617-216-8184 \; $\cdot$ \;
+\href{mailto:xycao@mit.edu}{xycao@mit.edu} \; $\cdot$ \;
+\href{https://xiaoyangcao1113.github.io/}{Personal Website}}
+\end{center}
+\vspace{0.85em}
+
+\section{Education}
+
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{Massachusetts Institute of Technology} & Cambridge, MA\\[-0.03em]
+\textit{M.S. in Technology and Policy (TPP)} & \multirow{2}{*}{Sep 2025 -- May 2027 (expected)}\\[-0.03em]
+\textit{M.S. in Computational Science and Engineering (CSE)} &
+\end{tabularx}\vspace{-0.05em}
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textit{Laboratory for Information and Decision Systems (LIDS)} &\\[-0.03em]
+\textit{Research advisor: Prof. Michiel Bakker} &
+\end{tabularx}
+
+\vspace{0.46em}
+\cvrow{Tsinghua University}{Beijing, China}
+{B.S. in Mathematics and Physics}{Sep 2021 -- Jun 2025}
+\begin{itemize}[leftmargin=1.45em,labelsep=0.55em,itemsep=0em,topsep=0.18em,parsep=0em]
+\item GPA: 3.95 / 4.00 -- ranked 3 / 60 (top 5\%)
+\end{itemize}
+
+\vspace{0.52em}
+\cvrow{University of California, Berkeley}{Berkeley, CA}
+{Exchange Student -- GPA: 3.93 / 4.00}{Jan 2024 -- Aug 2024}
+
+\vspace{0.30em}
+\section{Research Interests}
+Technical foundations for reliable and auditable AI; compound and multi-agent systems; reinforcement learning; safe autonomous systems.
+
+\section{Publications}
+
+\pub{\textbf{[1]} \textbf{Xiaoyang Cao}, Siddarth Srinivasan, Michiel A. Bakker. ``Do Modules Stay in Their Lane? Role Drift in Compound LLM Systems.'' \textit{Preprint}, 2026.}
+\pub{\textbf{[2]} \textbf{Xiaoyang Cao}, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu. ``RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment.'' \textit{International Conference on Learning Representations (ICLR)}, 2026.}
+\pub{\textbf{[3]} \textbf{Xiaoyang Cao}, Zhe Fu, Alexandre M. Bayen. ``Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints.'' \textit{American Control Conference (ACC)}, 2025.}
+\pub{\textbf{[4]} \textbf{Xiaoyang Cao}, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao. ``Virtual Nodes Improve Long-term Traffic Prediction.'' \textit{Transportation Research Board Annual Meeting (TRB)}, 2025.}
+
+\section{Research Experience}
+
+\research{Role Drift in Compound LLM Systems \textnormal{[1]} \linktag{https://arxiv.org/abs/2607.21627}{arXiv} \linktag{https://venturebeat.com/ai/one-ai-module-faked-86-of-a-pipelines-accuracy-gains-by-feeding-another-the-answers}{VentureBeat}}{Apr 2026 -- Present}{Advised by Prof. Michiel Bakker, MIT}
+\begin{itemize}[leftmargin=1.45em,labelsep=0.55em,itemsep=0.12em,topsep=0.18em,parsep=0em]
+\item Identified \textit{role drift}: end-to-end reinforcement learning can improve terminal performance while causing specialized modules to abandon their intended functions.
+\item Developed role-level evaluations showing that 86\% of an apparent 31-percentage-point accuracy gain disappeared once the decomposer's assigned function was measured, demonstrating that end-to-end metrics can conceal internal failure.
+\item Proposed Role Anchor, a training objective that preserves the influence of role specifications while allowing modules to improve under end-to-end optimization.
+\end{itemize}
+
+\newpage
+
+\research{RE-PO: Robust Preference Alignment for LLMs \textnormal{[2]} \linktag{https://arxiv.org/abs/2509.24159}{arXiv} \linktag{https://repo-alignment.github.io/}{Project}}{Mar 2025 -- Sep 2025}{Advised by Prof. Yu Wang, Tsinghua University}
+\begin{itemize}[leftmargin=1.45em,labelsep=0.55em,itemsep=0.12em,topsep=0.18em,parsep=0em]
+\item Proposed an EM-based framework that models preference-label correctness as a latent variable, jointly estimates label and annotator reliability, and systematically robustifies DPO, IPO, SimPO, and CPO.
+\item Proved convergence to the true noise level under calibration and improved AlpacaEval 2 win rates by up to 7.0 percentage points on Mistral-7B and Llama-3-8B, with additional gains on Arena-Hard and MultiPref.
+\end{itemize}
+
+\research{Safe Control via Pareto Control Barrier Functions \textnormal{[3]} \linktag{https://arxiv.org/abs/2410.04260}{arXiv}}{May 2024 -- Oct 2024}{Advised by Prof. Alexandre Bayen, UC Berkeley}
+\begin{itemize}[leftmargin=1.45em,labelsep=0.55em,itemsep=0.12em,topsep=0.18em,parsep=0em]
+\item Developed the Pareto Control Barrier Function algorithm by integrating Pareto multi-task learning into neural control barrier functions, maximizing the inner safe set while guaranteeing safety under input constraints.
+\item Matched the Hamilton--Jacobi viability kernel on a 2D inverted pendulum and achieved a 700\% larger inner safe set than the benchmark on a 12-D quadrotor obstacle-avoidance task.
+\end{itemize}
+
+\research{Virtual Nodes for Long-term Traffic Prediction \textnormal{[4]} \linktag{https://arxiv.org/abs/2501.10048}{arXiv}}{May 2024 -- Sep 2024}{Advised by Prof. Jinhua Zhao, MIT}
+\begin{itemize}[leftmargin=1.45em,labelsep=0.55em,itemsep=0.12em,topsep=0.18em,parsep=0em]
+\item Introduced virtual nodes into spatio-temporal graph neural networks to mitigate over-squashing in long-horizon traffic forecasting, using a semi-adaptive adjacency matrix learned from node embeddings.
+\item Reduced RMSE by 6.27\% and MAPE by 5.04\% on a five-year, 716-sensor San Diego dataset; the learned adjacency emphasized traffic-intensive intersections, improving interpretability.
+\end{itemize}
+
+\section{Awards \& Honors}
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{Outstanding Winner \& INFORMS Award}, Mathematical Contest in Modeling -- top 1\% & May 2023\\[0.18em]
+\textbf{Outstanding Innovation in Science \& Technology Scholarship}, Tsinghua University & 2023, 2024\\[0.18em]
+\textbf{Comprehensive Excellence Scholarship}, Tsinghua University & Oct 2023\\[0.18em]
+\textbf{Outstanding Academic Scholarship}, Tsinghua University & Oct 2022
+\end{tabularx}
+
+\section{Skills \& Languages}
+\textbf{Programming:} Python (PyTorch, scikit-learn, NumPy, Pandas), R, MATLAB\\
+\textbf{Optimization \& Control:} Gurobi, CVXPY, SciPy, Simulink\\
+\textbf{Languages:} English (fluent), Chinese (native)
+
+\end{document}
