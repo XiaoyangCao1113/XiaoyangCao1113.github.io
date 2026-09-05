@@ -88,6 +88,11 @@ img{display:block;max-width:100%}
 .error-content>p:not(.error-code){color:var(--muted)}
 .profile-primary{display:inline-flex;align-items:center;min-height:2.75rem}
 
+/* Use the available desktop width while keeping the mobile layout unchanged. */
+@media screen and (min-width:1100px){
+  main#content{max-width:76rem;padding-inline:2rem}
+}
+
 @media(max-width:760px){
   main{padding:2.5rem 1.5rem 1.75rem}
   .intro{grid-template-columns:minmax(0,1fr) 9rem;column-gap:1.75rem}
