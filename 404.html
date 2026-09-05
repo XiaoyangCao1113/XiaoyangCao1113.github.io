@@ -6,28 +6,19 @@
 <title>Page not found · Xiaoyang Cao</title>
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#FAF8F4">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
 <link rel="preload" href="/fonts/newsreader-roman.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plexmono-400.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-@font-face{font-family:'Newsreader';font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/newsreader-roman.woff2) format('woff2')}
-@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plexmono-400.woff2) format('woff2')}
-:root{--paper:#FAF8F4;--ink:#211D18;--muted:#746C63;--accent:#8B3036}
-html{color-scheme:only light}
-body{margin:0 auto;max-width:42rem;padding:5rem 1.5rem;background:var(--paper);color:var(--ink);font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:1.125rem;line-height:1.64}
-.code{font-family:'IBM Plex Mono',Consolas,monospace;font-size:.72rem;letter-spacing:.14em;color:var(--muted)}
-h1{font-size:2.3rem;line-height:1.05;font-weight:500;margin:.55rem 0 1rem;letter-spacing:-.015em}
-a{color:var(--accent);text-underline-offset:3px}
-@media(max-width:560px){body{padding:3rem 1.25rem}h1{font-size:2rem}}
-</style>
+<link rel="stylesheet" href="/site.css?v=20260905-2">
 </head>
-<body>
-<main>
-  <p class="code">404</p>
+<body class="error-page">
+<main class="error-content">
+  <a class="wordmark" href="/" aria-label="Xiaoyang Cao, homepage">XC<span aria-hidden="true">.</span></a>
+  <p class="error-code" aria-hidden="true">404</p>
   <h1>Page not found</h1>
   <p>This page may have moved when the site was rebuilt.</p>
-  <p><a href="/">Back to the homepage</a></p>
+  <p><a class="profile-primary" href="/">Back to the homepage <span aria-hidden="true">↗</span></a></p>
 </main>
 <script>
 (function(){
