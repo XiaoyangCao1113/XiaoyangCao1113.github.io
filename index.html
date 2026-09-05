@@ -26,141 +26,158 @@
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2')}
 
 :root{
-  --paper:#FAF8F4; --ink:#211D18; --muted:#746C63;
-  --line:rgba(33,29,24,.14); --line-soft:rgba(33,29,24,.09);
-  --accent:#8B3036; --accent-deep:#5F2026;
-  --sel-bg:#8B3036; --sel-ink:#FAF8F4;
+  --paper:#FAF8F4;--ink:#272421;--muted:#6D655D;
+  --line:#DAD4CC;--line-soft:#E7E2DB;
+  --accent:#8B3036;--accent-deep:#5F2026;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
-  --sans:system-ui,'Segoe UI',-apple-system,'Helvetica Neue','Noto Sans',Arial,sans-serif;
+  --sans:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
   --mono:'IBM Plex Mono',Consolas,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html{color-scheme:only light;scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{color-scheme:only light;scroll-behavior:smooth;scroll-padding-top:2rem}
 body{
-  margin:0 auto;max-width:46rem;padding:4.5rem 1.5rem 3.5rem;
+  margin:0 auto;max-width:78rem;padding:4.5rem 3rem;
   background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:1.125rem;line-height:1.64;
-  font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  font-family:var(--serif);font-size:1.125rem;line-height:1.65;
+  font-optical-sizing:auto;-webkit-font-smoothing:antialiased;
 }
-::selection{background:var(--sel-bg);color:var(--sel-ink)}
-p{margin:0 0 .95rem;text-wrap:pretty}
+main{display:grid;grid-template-columns:17rem minmax(0,1fr);gap:4.5rem}
+.content{min-width:0}
+::selection{background:var(--accent);color:var(--paper)}
+p{margin:0 0 1rem;text-wrap:pretty}
 img{max-width:100%}
 a{
-  color:var(--accent);
-  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;
-  text-decoration-color:color-mix(in srgb,var(--accent) 40%,transparent);
-  transition:color .12s ease-out,text-decoration-color .12s ease-out;
+  color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;
+  text-underline-offset:.18em;text-decoration-color:#B98D8C;
+  transition:color .16s ease,border-color .16s ease,background-color .16s ease;
 }
 a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+.skip-link{position:absolute;top:1rem;left:1rem;z-index:1;padding:.5rem 1rem;background:var(--paper);transform:translateY(-200%);font-family:var(--sans);font-size:1rem}
+.skip-link:focus{transform:translateY(0)}
 
-/* ---- masthead ---- */
-.masthead{display:flex;gap:1.45rem;align-items:flex-start;margin-bottom:2.55rem}
-.portrait-block{width:124px;flex:none}
-.portrait{display:block;width:124px;height:124px;border:1px solid var(--line-soft);border-radius:8px}
-.photo-credit{margin:.4rem 0 0;font-family:var(--mono);font-size:.68rem;line-height:1.5;color:var(--muted);text-align:center}
+/* A quiet, typographic identity column. */
+.masthead{position:sticky;top:3rem;align-self:start;border-top:3px solid var(--accent);padding-top:1.75rem}
+.portrait-block{width:160px;margin-bottom:1.65rem}
+.portrait{display:block;width:160px;height:160px;object-fit:cover;border-radius:6px;border:1px solid var(--line-soft)}
+.photo-credit{margin:.6rem 0 0;font-family:var(--sans);font-size:.75rem;line-height:1.5;color:var(--muted)}
 .photo-credit a{color:inherit;text-decoration:none}
-.photo-credit a:hover{color:var(--accent-deep);text-decoration:underline}
-.name{margin:0 0 .48rem;font-family:var(--serif);font-size:1.55rem;line-height:1.06;font-weight:500;letter-spacing:-.018em;white-space:nowrap}
-.name-zh{font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1em;font-weight:500;color:inherit;letter-spacing:0;margin-left:.18em;white-space:nowrap}
-.role{margin:0 0 .4rem;font-size:1rem;line-height:1.42}
+.photo-credit a:hover{text-decoration:underline}
+.name{margin:0 0 1.3rem;font-size:2.6rem;line-height:1.08;font-weight:500;letter-spacing:-.035em}
+.name-zh{display:block;margin-top:.65rem;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:1.2rem;font-weight:400;color:var(--muted);letter-spacing:.16em;line-height:1.5}
+.role{margin:0 0 .65rem;font-size:1.125rem;line-height:1.5;max-width:16rem}
 .amp{font-family:var(--serif);font-style:italic}
-.meta{margin:0 0 .65rem;font-family:var(--mono);font-size:.68rem;line-height:1.55;color:var(--muted)}
-.links{font-family:var(--mono);font-size:.68rem;line-height:1.7;color:var(--muted)}
-.links a{text-decoration:none}
-.links a:hover{text-decoration:underline}
+.meta{margin:0 0 1.5rem;font-family:var(--mono);font-size:.8125rem;line-height:1.6;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:.45rem .55rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.875rem;line-height:1.4}
+.links a{display:inline-flex;align-items:center;min-height:2.5rem;padding:.4rem .65rem;border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--ink)}
+.links a:hover{border-color:var(--accent);background:#F1E9E4;color:var(--accent)}
+.links .dot{display:none}
 
-/* ---- sections ---- */
-.bio{font-size:1.15rem;line-height:1.62}
-.sec{margin-top:3.75rem}
-.label{
-  display:flex;align-items:center;gap:1rem;margin:0 0 1.35rem;
-  font-family:var(--mono);font-size:.72rem;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-}
-.label::after{content:"";flex:1;border-top:1px solid var(--line)}
-.bio p:last-child{margin-bottom:0}
+/* Editorial hierarchy, with generous but consistent spacing. */
+.bio{font-size:1.1875rem;line-height:1.7}
+.bio p:first-child::first-line{font-weight:500}
+.bio p:nth-child(2){font-size:1.45rem;line-height:1.5;letter-spacing:-.01em;margin-block:1.5rem}
+.bio p:last-child{font-size:1.0625rem;color:var(--muted);margin-bottom:0}
+.sec{margin-top:3.5rem}
+.label{display:flex;align-items:center;gap:1rem;margin:0 0 1.65rem;font-family:var(--mono);font-size:.875rem;font-weight:500;letter-spacing:.065em;text-transform:uppercase;color:var(--accent);line-height:1.5}
+.label::after{content:'';flex:1;border-top:1px solid var(--line)}
 .sec p:last-child{margin-bottom:0}
-#research p+p{margin-top:1.05rem}
-#self-referential-ai,#multi-agent-emergence{scroll-margin-top:2rem}
+#self-referential-ai,#multi-agent-emergence{scroll-margin-top:2rem;padding-left:1.35rem;border-left:2px solid var(--line);font-size:1.125rem;line-height:1.65}
+#research p+p{margin-top:1.6rem}
+#research strong{display:block;font-size:1.4rem;font-weight:500;line-height:1.3;margin-bottom:.45rem;letter-spacing:-.01em}
 
-/* ---- the shared rail ---- */
-.rail-list{display:grid;grid-template-columns:5rem 1fr;column-gap:1.2rem;row-gap:.65rem;margin:0;padding:0}
-.rail-list dt{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right;padding-top:.4em;white-space:nowrap}
-.rail-list dd{margin:0;font-size:1rem;line-height:1.48}
-
+/* Paper thumbnails keep their full diagrams; titles carry the emphasis. */
 .pubs{list-style:none;margin:0;padding:0}
-.pubs li{display:grid;grid-template-columns:11.25rem minmax(0,1fr);column-gap:1.5rem;align-items:start;padding-bottom:1.75rem;border-bottom:1px solid var(--line-soft)}
-.pubs li+li{margin-top:1.75rem}
+.pubs li{display:grid;grid-template-columns:12.5rem minmax(0,1fr);gap:1.5rem;align-items:start;padding-block:1.75rem;border-bottom:1px solid var(--line-soft)}
+.pubs li:first-child{padding-top:0}
 .pubs li:last-child{padding-bottom:0;border-bottom:0}
-.pub-figure{
-  display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;
-  margin:.1rem 0 0;padding:.5rem;overflow:hidden;
-  background:#fff;border:1px solid var(--line);border-radius:5px;text-decoration:none;
-}
-.pub-figure:hover{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.pub-figure{display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;margin:.15rem 0 0;padding:.65rem;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:6px;text-decoration:none;transition:border-color .16s ease,box-shadow .16s ease}
+.pub-figure:hover{border-color:var(--accent);box-shadow:0 4px 16px #2724210D}
 .pub-figure img{display:block;width:100%;height:100%;object-fit:contain}
 .pub-copy{min-width:0}
-.pub-title{margin:0;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.25;letter-spacing:-.006em}
-.pub-authors{margin:.35rem 0 0;font-size:1rem;line-height:1.45;color:#4F4841}
-.pub-authors strong{font-weight:600}
-.pub-meta{margin:.55rem 0 0;font-family:var(--mono);font-size:.75rem;display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline}
-.venue{font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.pub-meta a{text-decoration:none}
+.pub-title{margin:0;font-size:1.4rem;font-weight:500;line-height:1.25;letter-spacing:-.012em}
+.pub-title a{color:var(--ink);text-decoration:none}
+.pub-title a:hover{color:var(--accent);text-decoration:underline}
+.pub-authors{margin:.65rem 0 0;font-size:1rem;line-height:1.5;color:var(--muted)}
+.pub-authors strong{color:var(--ink);font-weight:600}
+.pub-meta{margin:.8rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem .85rem;align-items:center;font-family:var(--sans);font-size:.875rem;line-height:1.5}
+.venue{font-family:var(--mono);font-size:.75rem;line-height:1.6;color:var(--accent);background:#EFE5E0;padding:.2rem .45rem;border-radius:3px}
+.pub-meta a{display:inline-flex;align-items:center;min-height:2rem;text-decoration:none}
 .pub-meta a:hover{text-decoration:underline}
 
+/* Dates align consistently in both the news and education lists. */
+.rail-list{display:grid;grid-template-columns:5.75rem minmax(0,1fr);column-gap:1.25rem;row-gap:1rem;margin:0;padding:0}
+.rail-list dt{font-family:var(--mono);font-size:.8125rem;line-height:1.7;color:var(--muted);padding-top:.15rem}
+.rail-list dd{margin:0;font-size:1.0625rem;line-height:1.55}
 .rail-ul{list-style:none;margin:0;padding:0}
-.rail-ul li{display:grid;grid-template-columns:5rem 1fr;column-gap:1.2rem}
-.rail-ul li+li{margin-top:1.15rem}
-.rail-ul .rail{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right;padding-top:.45em;white-space:nowrap}
-.rail-ul strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.16rem;line-height:1.35}
-.rail-ul .fine{display:block;margin-top:.12rem;font-size:.98rem;line-height:1.45;color:var(--muted)}
-
-/* ---- colophon ---- */
-.colophon{margin-top:3.75rem;padding-top:1.35rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;line-height:1.55;color:var(--muted)}
-.colophon p{margin:0 0 .4rem}
+.rail-ul li{display:grid;grid-template-columns:5.75rem minmax(0,1fr);column-gap:1.25rem}
+.rail-ul li+li{margin-top:1.5rem}
+.rail-ul .rail{font-family:var(--mono);font-size:.8125rem;line-height:1.7;color:var(--muted);padding-top:.15rem}
+.rail-ul strong{display:block;font-weight:500;font-size:1.25rem;line-height:1.35}
+.rail-ul .fine{display:block;margin-top:.3rem;font-size:1rem;line-height:1.55;color:var(--muted)}
+.colophon{margin-top:3.5rem;padding-top:1.4rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.8125rem;line-height:1.65;color:var(--muted)}
+.colophon p{margin:0 0 .35rem}
 .colophon p:last-child{margin-bottom:0}
-@media (max-width:640px){
-  body{padding:2.75rem 1.25rem 3rem}
-  .masthead{display:block;margin-bottom:2.35rem}
-  .portrait-block{width:84px;margin-bottom:1rem}
-  .portrait{width:84px;height:84px}
-  .name{font-size:1.4rem}
-  .role{font-size:.96rem}
-  .links{display:flex;flex-wrap:wrap;gap:.25rem .9rem;line-height:1.7}
-  .links .dot{display:none}
-  .bio{font-size:1.08rem}
-  .sec{margin-top:3.1rem}
-  .pubs li{grid-template-columns:1fr;row-gap:1rem}
-  .pub-figure{width:min(100%,18rem);margin:0}
-  .rail-list,.rail-ul li{grid-template-columns:4.35rem minmax(0,1fr);column-gap:.9rem}
-}
 
-@media (max-width:380px){
-  body{padding-inline:1.05rem}
-  .name{font-size:1.34rem}
-  .rail-list,.rail-ul li{grid-template-columns:1fr;row-gap:.15rem}
-  .rail-list dt,.rail-ul .rail{text-align:left;padding-top:0}
-  .rail-list dd+dt{margin-top:.35rem}
+@media(max-width:1100px){
+  body{padding:3rem 2rem}
+  main{grid-template-columns:14rem minmax(0,1fr);gap:3rem}
+  .name{font-size:2.25rem}
+  .pubs li{grid-template-columns:10rem minmax(0,1fr);gap:1.25rem}
 }
-
-@media screen and (min-width:1060px){
-  body{max-width:73rem;padding-block:4.25rem 3.5rem}
-  main{display:grid;grid-template-columns:15rem minmax(0,43rem);column-gap:clamp(3.75rem,5.5vw,6rem);justify-content:center}
-  .masthead{display:block;position:sticky;top:4.25rem;align-self:start;margin-bottom:0}
-  .portrait-block{width:168px;margin-bottom:1.15rem}
-  .portrait{width:168px;height:168px}
-  .name{font-size:1.55rem}
-  .role{max-width:15rem;font-size:.94rem}
-  .links .dot{display:none}
-  .links a{display:block;line-height:1.7;width:fit-content}
+@media(max-width:900px){
+  body{max-width:48rem;padding:2.5rem 1.75rem 3rem}
+  main{display:block}
+  .masthead{position:static;display:grid;grid-template-columns:144px minmax(0,1fr);gap:1.75rem;padding-top:1.5rem;margin-bottom:2.5rem}
+  .portrait-block{width:144px;margin:0}
+  .portrait{width:144px;height:144px}
+  .name{margin-bottom:.85rem;font-size:2.5rem}
+  .name-zh{margin-top:.4rem}
+  .role{max-width:none}
+  .meta{margin-bottom:1rem}
+  .links{padding-top:.8rem}
+  .pubs li{grid-template-columns:12rem minmax(0,1fr)}
 }
-
+@media(max-width:560px){
+  body{padding:1.5rem 1.25rem 2.5rem}
+  .masthead{grid-template-columns:1fr;gap:1.25rem;margin-bottom:2rem}
+  .portrait-block{width:112px}
+  .portrait{width:112px;height:112px}
+  .photo-credit{width:12rem}
+  .name{font-size:2.6rem}
+  .name-zh{font-size:1.125rem}
+  .links{gap:.5rem}
+  .links a{min-height:2.75rem;padding-inline:.75rem}
+  .bio{font-size:1.125rem}
+  .bio p:nth-child(2){font-size:1.3rem}
+  .sec{margin-top:2.75rem}
+  .label{margin-bottom:1.4rem;font-size:.8125rem}
+  #self-referential-ai,#multi-agent-emergence{padding-left:1rem}
+  .pubs li{grid-template-columns:minmax(0,1fr);gap:1rem;padding-block:1.5rem}
+  .pub-figure{width:100%;aspect-ratio:2/1;padding:.85rem;margin:0}
+  .pub-title{font-size:1.4rem}
+  .pub-meta a{min-height:2.75rem}
+  .rail-list,.rail-ul li{grid-template-columns:5.5rem minmax(0,1fr);column-gap:.8rem}
+}
+@media(max-width:360px){
+  .name{font-size:2.2rem}
+  .rail-list,.rail-ul li{grid-template-columns:1fr;row-gap:.2rem}
+  .rail-list dd+dt{margin-top:.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important}
+}
 @media print{
-  body{background:#fff;color:#000;max-width:none;padding:0}
-  a{color:#000}
-  .pub-meta a[href^="https://arxiv.org"]::after{content:" (" attr(href) ")"}
+  body{background:#fff;color:#000;max-width:none;padding:0;font-size:11pt}
+  main{display:block}
+  .masthead{position:static;display:flex;gap:1.5rem;margin-bottom:2rem}
+  .portrait-block{flex:none}
+  .links,.skip-link{display:none}
+  .sec{margin-top:2rem}
+  .pubs li,.rail-ul li{break-inside:avoid}
+  a,.pub-title a{color:#000}
+  .pub-meta a[href^="https://arxiv.org"]::after{content:' (' attr(href) ')'}
 }
 </style>
 <script type="application/ld+json">
@@ -168,11 +185,12 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#content">Skip to content</a>
 <main>
 
 <header class="masthead">
   <div class="portrait-block">
-    <img class="portrait" src="/images/portrait-320.webp" width="144" height="144" alt="Portrait of Xiaoyang Cao">
+    <img class="portrait" src="/images/portrait-320.webp" width="160" height="160" fetchpriority="high" alt="Portrait of Xiaoyang Cao">
     <p class="photo-credit">Photo credits: <a href="https://alcohol-freewhisky.github.io/">Ziqi Wei</a></p>
   </div>
   <div>
@@ -190,7 +208,7 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
   </div>
 </header>
 
-<div class="content">
+<div class="content" id="content" tabindex="-1">
 
 <section class="bio">
   <p>Hi! I’m a master’s student at MIT. I am affiliated with the <a href="https://idss.mit.edu/">Institute for Data, Systems, and Society (IDSS)</a>, the <a href="https://cse.mit.edu/">Center for Computational Science and Engineering (CCSE)</a>, and the <a href="https://lids.mit.edu/">Laboratory for Information and Decision Systems (LIDS)</a>. I am advised by <a href="https://miba.dev/">Michiel Bakker</a>. Before MIT, I received my B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
@@ -209,40 +227,40 @@ a:hover{color:var(--accent-deep);text-decoration-color:currentColor}
   <ol class="pubs">
     <li>
       <a class="pub-figure" href="https://arxiv.org/abs/2607.21627" aria-label="Open the Role Drift paper on arXiv">
-        <img src="/images/publications/role-drift-internal-view.png" width="1200" height="580" alt="Two pipelines compared: under outcome-only RL the reader takes a role-violating shortcut and answers from memory, while Role Anchor preserves the intended flow through query and passages">
+        <img src="/images/publications/role-drift-internal-view.png" width="1200" height="580" alt="Two pipelines compared: under outcome-only RL the reader takes a role-violating shortcut and answers from memory, while Role Anchor preserves the intended flow through query and passages" loading="lazy" decoding="async">
       </a>
       <div class="pub-copy">
-        <p class="pub-title">Do Modules Stay in Their Lane? Role Drift in Compound LLM Systems</p>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2607.21627">Do Modules Stay in Their Lane? Role Drift in Compound LLM Systems</a></p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Siddarth Srinivasan, Michiel A. Bakker</p>
         <p class="pub-meta"><span class="venue">Preprint 2026</span> <a href="https://arxiv.org/abs/2607.21627">arXiv</a></p>
       </div>
     </li>
     <li>
       <a class="pub-figure" href="https://repo-alignment.github.io/" aria-label="Open the RE-PO project website">
-        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization">
+        <img src="/images/publications/repo-em-loop.png" width="1200" height="609" alt="Diagram of RE-PO's E-step and M-step for robust preference optimization" loading="lazy" decoding="async">
       </a>
       <div class="pub-copy">
-        <p class="pub-title">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</p>
+        <p class="pub-title"><a href="https://repo-alignment.github.io/">RE-PO: Robust Enhanced Policy Optimization as a General Framework for LLM Alignment</a></p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu</p>
         <p class="pub-meta"><span class="venue">ICLR 2026</span> <a href="https://arxiv.org/abs/2509.24159">arXiv</a> <a href="https://repo-alignment.github.io/">Website</a></p>
       </div>
     </li>
     <li>
       <a class="pub-figure" href="https://arxiv.org/abs/2410.04260" aria-label="Open the PCBF paper on arXiv">
-        <img src="/images/publications/pcbf-objective-space.png" width="706" height="535" alt="PCBF objective-space decomposition around the Pareto front with upper and lower bounds">
+        <img src="/images/publications/pcbf-objective-space.png" width="706" height="535" alt="PCBF objective-space decomposition around the Pareto front with upper and lower bounds" loading="lazy" decoding="async">
       </a>
       <div class="pub-copy">
-        <p class="pub-title">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</p>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2410.04260">Pareto Control Barrier Function for Inner Safe Set Maximization Under Input Constraints</a></p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Zhe Fu, Alexandre M. Bayen</p>
         <p class="pub-meta"><span class="venue">ACC 2025</span> <a href="https://arxiv.org/abs/2410.04260">arXiv</a> <a href="/files/slides/slide_PCBF.pdf">Slides</a></p>
       </div>
     </li>
     <li>
       <a class="pub-figure" href="https://arxiv.org/abs/2501.10048" aria-label="Open the Virtual Nodes paper on arXiv">
-        <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" alt="Virtual node accelerating message passing across a traffic graph">
+        <img src="/images/publications/virtual-node-message-passing.png" width="582" height="255" alt="Virtual node accelerating message passing across a traffic graph" loading="lazy" decoding="async">
       </a>
       <div class="pub-copy">
-        <p class="pub-title">Virtual Nodes Improve Long-term Traffic Prediction</p>
+        <p class="pub-title"><a href="https://arxiv.org/abs/2501.10048">Virtual Nodes Improve Long-term Traffic Prediction</a></p>
         <p class="pub-authors"><strong>Xiaoyang Cao</strong>, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao</p>
         <p class="pub-meta"><span class="venue">TRB Annual Meeting 2025</span> <a href="https://arxiv.org/abs/2501.10048">arXiv</a> <a href="/files/slides/slide_Virtual_Nodes.pdf">Slides</a></p>
       </div>
