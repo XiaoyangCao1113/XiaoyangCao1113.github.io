@@ -90,7 +90,7 @@ img{display:block;max-width:100%}
 
 /* Scale the established layout together: type, images, spacing, and page width. */
 @media screen and (min-width:1100px){
-  html{font-size:clamp(1.0625rem,1.4vw,1.25rem)}
+  html{font-size:clamp(1.125rem,1.55vw,1.5rem)}
 }
 
 @media(max-width:760px){
