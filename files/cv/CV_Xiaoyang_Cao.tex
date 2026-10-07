@@ -1,0 +1,179 @@
+% CV of Xiaoyang Cao. Build with:  xelatex CV_Xiaoyang_Cao.tex
+% then copy the PDF to ../CV_Xiaoyang_Cao.pdf and ../CV_Xiaoyang_Cao_2026.pdf.
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.78in,top=0.62in,bottom=0.7in]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+
+% Section headings: bold caps with a full-width rule.
+\titleformat{\section}{\large\bfseries}{}{0pt}{\MakeUppercase}[\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{12pt}
+
+% Links in the body are underlined; [arXiv]-style tags are bold.
+\newcommand{\ulink}[2]{\href{#1}{\underline{#2}}}
+\newcommand{\linktag}[2]{\textbf{[\ulink{#1}{#2}]}}
+\newcommand{\sep}{\enspace$\cdot$\enspace}
+
+% \entry{bold title}{right}{italic subtitle}{right}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill #2\\
+  \textit{#3}\hfill #4\par}
+
+% \project{title}{dates}{advisor line}
+\newcommand{\project}[3]{%
+  \vspace{6pt}%
+  {#1}\hfill #2\\
+  \textit{#3}\par\vspace{2pt}}
+
+\setlist[itemize]{leftmargin=12pt,labelsep=5.5pt,itemsep=1.4pt,parsep=0pt,topsep=1pt,label=\textbullet}
+\setlist[enumerate]{leftmargin=*,labelindent=0pt,labelsep=5pt,itemsep=7.4pt,parsep=0pt,topsep=0pt,label={[\arabic*]},widest=5}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Xiaoyang Cao}\\[5pt]
+  Cambridge, MA\sep (+1) 617-216-8184\sep \href{mailto:xycao@mit.edu}{xycao@mit.edu}\sep
+  \href{https://xiaoyangcao1113.github.io/}{Personal Website}\sep
+  \href{https://scholar.google.com/citations?user=XVWuYHAAAAAJ}{Google Scholar}\sep
+  \href{https://github.com/XiaoyangCao1113}{GitHub}
+\end{center}
+\vspace{-6pt}
+
+\section{Education}
+
+\entry{Massachusetts Institute of Technology}{Cambridge, MA}
+      {M.S. in Computational Science \& Engineering}{Sep 2025 -- May 2027 (expected)}
+\textit{Concurrent M.S. in Technology \& Policy}\\
+\textit{Laboratory for Information and Decision Systems (LIDS)}\\
+\textit{Research advisor: Prof. \ulink{https://miba.dev/}{Michiel Bakker}}\par
+\vspace{6pt}
+\entry{Tsinghua University}{Beijing, China}
+      {B.S. in Mathematics and Physics}{Sep 2021 -- Jun 2025}
+\vspace{6pt}
+\entry{University of California, Berkeley}{Berkeley, CA}
+      {Exchange Student}{Jan 2024 -- Aug 2024}
+
+\section{Research Interests}
+
+How intelligence emerges in collectives of interacting agents (multi-agent reinforcement learning, populations of
+LLM agents) and in self-referential learning (self-play, self-distillation, preference optimization).
+
+\section{Publications}
+
+\begin{enumerate}
+  \item \textbf{Xiaoyang Cao}, Jingqi Li, Zhe Fu, Alexandre M. Bayen. ``Who Bears the Burden? Learning Responsibility for
+    Shared Constraints in Multi-Agent Reinforcement Learning.'' \textit{Under review}, 2026.
+    \href{https://arxiv.org/abs/2610.07491}{arXiv:2610.07491}.
+  \item \textbf{Xiaoyang Cao}, Siddarth Srinivasan, Michiel A. Bakker. ``Do Modules Stay in Their Lane? Role Drift in
+    Compound LLM Systems.'' \textit{Under review}, 2026.
+    \href{https://arxiv.org/abs/2607.21627}{arXiv:2607.21627}.
+  \item \textbf{Xiaoyang Cao}, Zelai Xu, Mo Guang, Kaiwen Long, Michiel Bakker, Yu Wang, Chao Yu. ``RE-PO: Robust
+    Enhanced Policy Optimization as a General Framework for LLM Alignment.'' \textit{International Conference on
+    Learning Representations (ICLR)}, 2026.
+  \item \textbf{Xiaoyang Cao}, Zhe Fu, Alexandre M. Bayen. ``Pareto Control Barrier Function for Inner Safe Set Maximization
+    Under Input Constraints.'' \textit{American Control Conference (ACC)}, 2025.
+  \item \textbf{Xiaoyang Cao}, Dingyi Zhuang, Shenhao Wang, Jinhua Zhao. ``Virtual Nodes Improve Long-term Traffic
+    Prediction.'' \textit{Transportation Research Board Annual Meeting (TRB)}, 2025.
+\end{enumerate}
+
+\section{Research Experience}
+
+\vspace{-6pt}
+\project{\textbf{Social Swarm: Scaling Populations of Research Agents with Sparse Networks}}{Sep 2026 -- Present}
+        {Advised by Prof. \ulink{https://miba.dev/}{Michiel Bakker}, MIT}
+\begin{itemize}
+  \item Studying how collectives of LLM research agents convert agent count into capability on open-ended problems,
+    motivated by recent results that scale to thousands of agents.
+  \item Identified \textit{diversity collapse}: when every agent sees every attempt, the population homogenizes and long-horizon
+    performance stalls. Proposed a sparse follow-network organization in which each agent sees only a bounded set
+    of peers.
+  \item Preliminary experiments on the Heilbronn triangle problem show that the sparse network delays collapse relative
+    to a fully visible shared board and to independent best-of-$N$.
+\end{itemize}
+
+\project{\textbf{Learning Responsibility for Shared Constraints in MARL} \textbf{[1]}
+         \linktag{https://arxiv.org/abs/2610.07491}{arXiv} \linktag{https://lira-marl.github.io/}{Project}}{May 2025 -- Sep 2026}
+        {Advised by Prof. \ulink{https://bayen.berkeley.edu/alex-bayen}{Alexandre Bayen}, UC Berkeley}
+\begin{itemize}
+  \item Proposed LiRA (Lagrangian Responsibility Allocation): a common multiplier enforces a shared cost budget, while
+    learned per-agent responsibility shares redistribute its penalty by optimizing social welfare, without modifying
+    rewards or constraints.
+  \item Proved that for convex games varying the shares induces a smooth family of normalized generalized Nash equilibria
+    in which active constraints stay at budget while welfare varies, and derived a welfare gradient that accounts for
+    both learning updates and the induced shift in data distribution.
+  \item Improved average social welfare by up to 29\% over uniform and agent-specific multiplier baselines across CityLearn,
+    MABIM, Harvest, and MetaDrive (3 to 400 agents).
+\end{itemize}
+
+\project{\textbf{Role Drift in Compound LLM Systems} \textbf{[2]}
+         \linktag{https://arxiv.org/abs/2607.21627}{arXiv}
+         \linktag{https://venturebeat.com/ai/one-ai-module-faked-86-of-a-pipelines-accuracy-gains-by-feeding-another-the-answers}{VentureBeat}}{Apr 2026 -- Sep 2026}
+        {Advised by Prof. \ulink{https://miba.dev/}{Michiel Bakker}, MIT}
+\begin{itemize}
+  \item Identified \textit{role drift}: end-to-end reinforcement learning can improve terminal performance while causing specialized
+    modules to abandon their intended functions.
+  \item Developed role-level evaluations showing that 86\% of an apparent 31-percentage-point accuracy gain disappeared
+    once the decomposer's assigned function was measured, demonstrating that end-to-end metrics can conceal
+    internal failure.
+  \item Proposed Role Anchor, a training objective that preserves the influence of role specifications while allowing
+    modules to improve under end-to-end optimization.
+\end{itemize}
+
+\project{\textbf{RE-PO: Robust LLM Preference Alignment} (ICLR 2026) \textbf{[3]}
+         \linktag{https://arxiv.org/abs/2509.24159}{arXiv} \linktag{https://repo-alignment.github.io/}{Project}}{Mar 2025 -- Sep 2025}
+        {Advised by Prof. \ulink{https://web.ee.tsinghua.edu.cn/wangyu/en/}{Yu Wang}, Tsinghua University}
+\begin{itemize}
+  \item Proposed an EM-based framework that models preference-label correctness as a latent variable, jointly estimates
+    label and annotator reliability, and systematically robustifies DPO, IPO, SimPO, and CPO.
+  \item Proved convergence to the true noise level under calibration and improved AlpacaEval 2 win rates by up to 7.0
+    percentage points on Mistral-7B and Llama-3-8B, with additional gains on Arena-Hard and MultiPref.
+\end{itemize}
+
+\project{\textbf{Safe Control via Pareto Control Barrier Functions} (ACC 2025) \textbf{[4]}
+         \linktag{https://arxiv.org/abs/2410.04260}{arXiv}}{May 2024 -- Oct 2024}
+        {Advised by Prof. \ulink{https://bayen.berkeley.edu/alex-bayen}{Alexandre Bayen}, UC Berkeley}
+\begin{itemize}
+  \item Developed the Pareto Control Barrier Function algorithm by integrating Pareto multi-task learning into neural
+    control barrier functions, maximizing the inner safe set while guaranteeing safety under input constraints.
+  \item Matched the Hamilton--Jacobi viability kernel on a 2D inverted pendulum and achieved a 700\% larger inner safe
+    set than the benchmark on a 12-D quadrotor obstacle-avoidance task.
+\end{itemize}
+
+\project{\textbf{Virtual Nodes for Long-term Traffic Prediction} (TRB 2025) \textbf{[5]}
+         \linktag{https://arxiv.org/abs/2501.10048}{arXiv}}{May 2024 -- Sep 2024}
+        {Advised by Prof. \ulink{https://zhaojinhua.com/}{Jinhua Zhao}, MIT}
+\begin{itemize}
+  \item Introduced virtual nodes into spatio-temporal graph neural networks to mitigate over-squashing in long-horizon
+    traffic forecasting, using a semi-adaptive adjacency matrix learned from node embeddings.
+  \item Reduced RMSE by 6.27\% and MAPE by 5.04\% on a five-year, 716-sensor San Diego dataset; the learned adjacency
+    emphasized traffic-intensive intersections, improving interpretability.
+\end{itemize}
+
+\section{Awards \& Honors}
+
+\textbf{Outstanding Winner \& INFORMS Award}, Mathematical Contest in Modeling -- top 1\%\hfill May 2023\\
+\textbf{Outstanding Innovation in Science \& Technology Scholarship}, Tsinghua University\hfill 2023, 2024\\
+\textbf{Comprehensive Excellence Scholarship}, Tsinghua University\hfill Oct 2023\\
+\textbf{Outstanding Academic Scholarship}, Tsinghua University\hfill Oct 2022
+
+\section{Service \& Teaching}
+
+\textbf{Conference Reviewer:} ICLR 2027, CoRL 2026\\
+\textbf{Teaching Assistant:} Calculus A, Tsinghua University\hfill Spring 2025
+
+\section{Skills \& Languages}
+
+\textbf{ML \& RL:} Python, PyTorch, Hugging Face Transformers / TRL, vLLM, DeepSpeed, FSDP, PettingZoo, RLlib\\
+\textbf{Compute:} Multi-GPU, multi-node training on H100 / H200 / B200 clusters\\
+\textbf{Languages:} English (fluent), Chinese (native)
+
+\end{document}
