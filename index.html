@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Xiaoyang Cao</title>
-<meta name="description" content="Xiaoyang Cao (曹骁扬) — M.S. student at MIT and LIDS affiliate studying how intelligence arises, through multi-agent emergence and self-referential AI.">
+<meta name="description" content="Xiaoyang Cao (曹骁扬) — M.S. student at MIT and LIDS affiliate studying how intelligence arises and how to make AI safe, through multi-agent emergence and scalable oversight.">
 <meta name="author" content="Xiaoyang Cao">
 <link rel="canonical" href="https://xiaoyangcao1113.github.io/">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Xiaoyang Cao">
-<meta property="og:description" content="M.S. student at MIT and LIDS affiliate studying how intelligence arises — multi-agent emergence and self-referential AI.">
+<meta property="og:description" content="M.S. student at MIT and LIDS affiliate studying how intelligence arises and how to make AI safe — multi-agent emergence and scalable oversight.">
 <meta property="og:url" content="https://xiaoyangcao1113.github.io/">
 <meta property="og:image" content="https://xiaoyangcao1113.github.io/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -32,7 +32,7 @@
     <h1 class="name"><span class="name-en">Xiaoyang Cao</span> <span class="name-zh" lang="zh-Hans">曹骁扬</span></h1>
     <div class="bio-copy">
       <p>Hi! I’m a master’s student at MIT. I am affiliated with the <a href="https://idss.mit.edu/">Institute for Data, Systems, and Society (IDSS)</a>, the <a href="https://cse.mit.edu/">Center for Computational Science and Engineering (CCSE)</a>, and the <a href="https://lids.mit.edu/">Laboratory for Information and Decision Systems (LIDS)</a>. I am advised by <a href="https://miba.dev/">Michiel Bakker</a>. Before MIT, I received my B.S. in Mathematics and Physics from <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a> in 2025.</p>
-  <p>I study how intelligence arises and how to make AI safe. I’m currently exploring this through <a href="#multi-agent-emergence">multi-agent systems</a> and <a href="#self-referential-ai">self-referential AI</a>.</p>
+  <p>I study how intelligence arises and how to make AI safe. I’m currently exploring this through <a href="#multi-agent-emergence">multi-agent systems</a> and <a href="#scalable-oversight">scalable oversight</a>.</p>
   <p class="contact-note">Feel free to reach out at xycao [at] mit [dot] edu.</p>
     </div>
     <nav class="links" aria-label="Profiles">
@@ -116,8 +116,8 @@
 <section class="sec" id="research">
   <h2 class="label">Research Interests</h2>
   <div class="research-grid">
-  <article class="research-topic" id="multi-agent-emergence"><h3>Multi-Agent Emergence.</h3> <p>My starting point is Anderson’s <a href="https://www.science.org/doi/10.1126/science.177.4047.393">“more is different”</a>: at scale, new phenomena emerge that you can’t predict from the parts. Wolfram’s <a href="https://www.wolframscience.com/nks/"><em>A New Kind of Science</em></a> makes the same case computationally. Simple rules, iterated, produce genuinely complex behavior. I want to study this in multi-agent AI, where agent swarms, social intelligence, and game theory give rise to collective phenomena that no single agent could produce.</p></article>
-  <article class="research-topic" id="self-referential-ai"><h3>Self-Referential AI.</h3> <p>Hofstadter’s <a href="https://en.wikipedia.org/wiki/I_Am_a_Strange_Loop">strange loops</a> argue that a mind is what happens when a system models itself. Schmidhuber’s <a href="https://arxiv.org/abs/cs/0309048">Gödel Machine</a> gave this intuition a computational form. I see the same principle at work in <a href="https://arxiv.org/abs/2401.10020">self-reward</a>, <a href="https://www.nature.com/articles/nature24270">self-play</a>, self-distillation, and recursive self-improvement. They look like separate techniques. I think they share a root: a model that reasons over its own outputs to reshape itself.</p></article>
+  <article class="research-topic" id="multi-agent-emergence"><h3>Multi-Agent Emergence.</h3> <p>I want to build methods that organize many agents so that strong abilities emerge from simple interaction rules.</p> <p>My starting point is Anderson’s <a href="https://www.science.org/doi/10.1126/science.177.4047.393">“more is different”</a>: at scale, new phenomena emerge that you can’t predict from the parts. Wolfram’s <a href="https://www.wolframscience.com/nks/"><em>A New Kind of Science</em></a> makes the same case computationally. Simple rules, iterated, produce genuinely complex behavior. I want to study this in multi-agent AI systems, where a group of agents achieves what no single agent could. Right now I’m interested in agent swarms.</p></article>
+  <article class="research-topic" id="scalable-oversight"><h3>Scalable Oversight.</h3> <p>I want to build oversight methods that scale together with the model itself.</p> <p><a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart’s law</a> says that once a measure becomes a target, it stops being a good measure. Almost every way we train and audit AI runs into this (<a href="https://arxiv.org/abs/2203.02155">RLHF</a>, <a href="https://arxiv.org/abs/2306.05685">LLM judges</a>, <a href="https://arxiv.org/abs/2402.06782">debate</a>, <a href="https://arxiv.org/abs/2312.09390">weak-to-strong supervision</a>, etc.). This is a safety problem, because we lose the ability to tell when the system has gone wrong. It is also a problem for self-improvement, because a system can only improve as far as its supervision signal can see. I want to know where a supervision signal can come from when the system is stronger than its evaluator, and how to keep it trustworthy as both keep changing.</p></article>
   </div>
 </section>
 
@@ -154,12 +154,12 @@
     <li>
       <span class="rail">2024</span>
       <div><strong>University of California, Berkeley</strong>
-      <span class="fine">Exchange student, Jan–Aug 2024 · GPA 3.93 / 4.00</span></div>
+      <span class="fine">Exchange student, Jan–Aug 2024</span></div>
     </li>
     <li>
       <span class="rail">2021–2025</span>
       <div><strong>Tsinghua University</strong>
-      <span class="fine">B.S. in Mathematics and Physics · GPA 3.95 / 4.00, ranked 3 / 60</span></div>
+      <span class="fine">B.S. in Mathematics and Physics</span></div>
     </li>
   </ul>
 </section>
